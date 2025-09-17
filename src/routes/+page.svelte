@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
-
 	import NavBar from '$lib/components/NavBar.svelte';
 	import FloatingDots from '$lib/components/FloatingDots.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
@@ -12,26 +10,11 @@
 	import TestimonialsSection from '$lib/components/TestimonialsSection.svelte';
 	import ContactSection from '$lib/components/ContactSection.svelte';
 
-	const isDarkMode = writable(true);
-
 	onMount(() => {
-		const savedTheme = localStorage.getItem('theme');
-		isDarkMode.set(savedTheme ? savedTheme === 'dark' : true);
-	});
-
-	isDarkMode.subscribe((value) => {
-		if (typeof window !== 'undefined') {
-			if (value) {
-				document.body.classList.add('dark');
-				localStorage.setItem('theme', 'dark');
-			} else {
-				document.body.classList.remove('dark');
-				localStorage.setItem('theme', 'light');
-			}
+		if (typeof document !== 'undefined') {
+			document.body.classList.add('dark');
 		}
 	});
-
-	const toggleTheme = () => isDarkMode.update((n) => !n);
 
 	let isScrolled = false;
 	let cursorPosition = { x: 0, y: 0 };
@@ -156,7 +139,7 @@
 
 <div class="relative min-h-screen overflow-hidden antialiased">
 	<FloatingDots />
-	<NavBar {navLinks} {isDarkMode} {toggleTheme} {isScrolled} />
+	<NavBar {navLinks} {isScrolled} />
 
 	<div class="relative z-10">
 		<main class="container mx-auto px-6 pb-32 pt-24 md:px-12">
