@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Writable } from 'svelte/store';
 
-	export let navLinks: string[] = [];
+	export let navLinks: { label: string; href: string }[] = [];
 	export let isDarkMode: Writable<boolean>;
 	export let toggleTheme: () => void;
 	export let isScrolled = false;
@@ -9,10 +9,10 @@
 
 <nav class="fixed top-0 right-0 left-0 z-50 transition-all duration-300" class:glass-card={isScrolled}>
 	<div class="container mx-auto flex items-center justify-between px-6 py-4 md:px-12">
-		<a href="#overview" class="text-glow text-xl font-bold">JD</a>
+		<a href="#home" class="text-glow text-xl font-bold">JD</a>
 		<div class="hidden items-center space-x-8 md:flex">
 			{#each navLinks as link}
-				<a href="#{link.toLowerCase()}" class="link-text transition-colors duration-300">{link}</a>
+				<a href={`#${link.href}`} class="link-text transition-colors duration-300">{link.label}</a>
 			{/each}
 			<button on:click={toggleTheme} class="theme-toggle" aria-label="Toggle theme">
 				{#if $isDarkMode}

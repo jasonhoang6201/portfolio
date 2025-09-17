@@ -1,37 +1,49 @@
 <script lang="ts">
 	import { fadeIn } from '$lib/actions/fadeIn';
-
-	export let skills: { name: string; icon: string }[] = [];
 </script>
 
 <section use:fadeIn id="about" class="fade-in-section py-24">
-	<h2 class="mb-12 text-center text-4xl font-bold">
-		<span class="text-glow-blue">About & Skills</span>
-	</h2>
-	<div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-5">
-		<div class="lg:col-span-2">
-			<img
-				src="https://placehold.co/400x400/0A0A0A/E2E8F0?text=JD"
-				alt="John Doe Portrait"
-				class="mx-auto h-64 w-64 max-w-sm rounded-full shadow-2xl shadow-purple-500/10 lg:h-auto lg:w-full"
-			/>
-		</div>
-		<div class="lg:col-span-3">
-			<p class="main-text-dim mb-8 text-lg leading-relaxed">
-				Hello! I'm John, a passionate developer with over 5 years of experience... My journey in tech
-				started with a simple "Hello, World!" and has since evolved into a deep passion for crafting elegant
-				solutions to complex problems. I thrive in collaborative environments and am always eager to learn new
-				things.
+	<div class="container mx-auto grid gap-12 px-6 md:grid-cols-2 md:px-12">
+		<div class="space-y-6">
+			<h2 class="text-4xl font-bold text-glow-blue">Designing for clarity, engineering for scale.</h2>
+			<p class="main-text-dim text-lg leading-relaxed">
+				I translate complex ideas into intuitive flows and robust architectures. My process balances
+				design exploration with disciplined implementation, ensuring every feature ships with purpose
+				and polish.
 			</p>
-			<div class="flex flex-wrap justify-center gap-4 lg:justify-start">
-				{#each skills as skill}
-					<img
-						src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}`}
-						alt={skill.name}
-						class="skill-icon h-12 w-12"
-						title={skill.name}
-					/>
-				{/each}
+			<ul class="space-y-3 text-sky-100/80">
+				<li class="flex items-start gap-3">
+					<span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>
+					<span>End-to-end ownership of product surfaces used by millions.</span>
+				</li>
+				<li class="flex items-start gap-3">
+					<span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>
+					<span>Rapid prototyping with modern frameworks to validate ideas fast.</span>
+				</li>
+				<li class="flex items-start gap-3">
+					<span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>
+					<span>Collaborative by default—thriving alongside designers, PMs, and stakeholders.</span>
+				</li>
+			</ul>
+		</div>
+		<div class="glass-card rounded-2xl p-8">
+			<div class="grid gap-6 sm:grid-cols-2">
+				<div>
+					<p class="text-sm uppercase tracking-wide text-emerald-300/80">Years Experience</p>
+					<p class="mt-2 text-3xl font-bold text-white">5+</p>
+				</div>
+				<div>
+					<p class="text-sm uppercase tracking-wide text-emerald-300/80">Products Shipped</p>
+					<p class="mt-2 text-3xl font-bold text-white">25+</p>
+				</div>
+				<div>
+					<p class="text-sm uppercase tracking-wide text-emerald-300/80">Specialties</p>
+					<p class="mt-2 text-base text-sky-100/90">Design systems, data visualization, realtime UX</p>
+				</div>
+				<div>
+					<p class="text-sm uppercase tracking-wide text-emerald-300/80">Focus</p>
+					<p class="mt-2 text-base text-sky-100/90">Human-centered products & performant frontends</p>
+				</div>
 			</div>
 		</div>
 	</div>
