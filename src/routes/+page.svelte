@@ -9,15 +9,18 @@
 	import ExperienceSection from '$lib/components/ExperienceSection.svelte';
 	import EducationSection from '$lib/components/EducationSection.svelte';
 	import ContactSection from '$lib/components/ContactSection.svelte';
+	import ScrollProgress from '$lib/components/ScrollProgress.svelte';
 
 	onMount(() => {
 		if (typeof document !== 'undefined') {
 			document.body.classList.add('dark');
 		}
+		handleScroll();
 	});
 
 	let isScrolled = false;
 	let cursorPosition = { x: 0, y: 0 };
+	let scrollProgress = 0;
 
 	const navLinks = [
 		{ label: 'Home', href: 'home' },
@@ -241,7 +244,14 @@
 	};
 
 	function handleScroll() {
-		isScrolled = window.scrollY > 10;
+		if (typeof document === 'undefined') {
+			return;
+		}
+		const doc = document.documentElement;
+		const total = doc.scrollHeight - doc.clientHeight;
+		const scrolled = window.scrollY;
+		scrollProgress = total > 0 ? (scrolled / total) * 100 : 0;
+		isScrolled = scrolled > 10;
 	}
 
 	function handleMouseMove(event: MouseEvent) {
@@ -265,7 +275,8 @@
 
 <div class="relative min-h-screen overflow-hidden antialiased">
 	<FloatingDots />
-	<NavBar {navLinks} {isScrolled} />
+		<NavBar {navLinks} {isScrolled} />
+		<ScrollProgress progress={scrollProgress} />
 
 	<div class="relative z-10">
 		<main class="container mx-auto px-6 pt-24 pb-32 md:px-12">

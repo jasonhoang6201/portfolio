@@ -53,10 +53,17 @@ body {
 	background-color: var(--bg-color);
 	color: var(--text-color);
 	overflow-x: hidden;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 	transition:
 		background-color 0.3s ease,
 		color 0.3s ease;
 	scroll-behavior: smooth;
+}
+
+html {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 }
 
 body::before {
@@ -73,21 +80,10 @@ body::before {
 	animation: moveAurora 20s infinite alternate linear;
 }
 
-::-webkit-scrollbar {
-	width: 8px;
-}
-
-::-webkit-scrollbar-track {
-	background: var(--scrollbar-track);
-}
-
-::-webkit-scrollbar-thumb {
-	background: var(--scrollbar-thumb);
-	border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: var(--scrollbar-thumb-hover);
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+	width: 0;
+	height: 0;
 }
 
 .main-text-dim {
