@@ -4,10 +4,10 @@
 	import FloatingDots from '$lib/components/FloatingDots.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
 	import AboutSection from '$lib/components/AboutSection.svelte';
-	import ServicesSection from '$lib/components/ServicesSection.svelte';
+	import SkillsSection from '$lib/components/SkillsSection.svelte';
 	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
 	import ExperienceSection from '$lib/components/ExperienceSection.svelte';
-	import TestimonialsSection from '$lib/components/TestimonialsSection.svelte';
+	import EducationSection from '$lib/components/EducationSection.svelte';
 	import ContactSection from '$lib/components/ContactSection.svelte';
 
 	onMount(() => {
@@ -22,97 +22,223 @@
 	const navLinks = [
 		{ label: 'Home', href: 'home' },
 		{ label: 'About', href: 'about' },
-		{ label: 'Services', href: 'services' },
+		{ label: 'Skills', href: 'skills' },
 		{ label: 'Experience', href: 'experience' },
 		{ label: 'Projects', href: 'projects' },
-		{ label: 'Testimonials', href: 'testimonials' },
+		{ label: 'Education', href: 'education' },
 		{ label: 'Contact', href: 'contact' }
 	];
 
 	const techStack = [
-		{ name: 'JavaScript', icon: 'javascript/javascript-original.svg' },
+		{ name: 'TypeScript', icon: 'typescript/typescript-original.svg' },
 		{ name: 'React', icon: 'react/react-original.svg' },
-		{ name: 'Node.js', icon: 'nodejs/nodejs-original.svg' },
-		{ name: 'Svelte', icon: 'svelte/svelte-original.svg' },
-		{ name: 'Tailwind CSS', icon: 'tailwindcss/tailwindcss-plain.svg' },
-		{ name: 'Python', icon: 'python/python-original.svg' },
-		{ name: 'Docker', icon: 'docker/docker-original.svg' },
-		{ name: 'TypeScript', icon: 'typescript/typescript-original.svg' }
+		{ name: 'Next.js', icon: 'nextjs/nextjs-original.svg' },
+		{ name: 'React Native', icon: 'react/react-original.svg' },
+		{ name: 'Angular', icon: 'angularjs/angularjs-original.svg' },
+		{ name: 'NestJS', icon: 'nestjs/nestjs-plain.svg' },
+		{ name: 'Express.js', icon: 'express/express-original.svg' },
+		{ name: 'MongoDB', icon: 'mongodb/mongodb-original.svg' },
+		{ name: 'PostgreSQL', icon: 'postgresql/postgresql-original.svg' },
+		{ name: 'AWS', icon: 'amazonwebservices/amazonwebservices-original.svg' },
+		{ name: 'Firebase', icon: 'firebase/firebase-plain.svg' },
+		{ name: 'Stripe', icon: 'stripe/stripe-original.svg' }
 	];
 
-	const services = [
+	const skills = [
 		{
-			title: 'Product Engineering',
-			description: 'End-to-end ownership—from prototypes to scalable, maintainable frontends.',
-			icon: '🚀'
+			title: 'Frontend Engineering',
+			description: 'Crafting responsive web and mobile interfaces across modern ecosystems.',
+			icon: '🖥️',
+			points: [
+				'HTML, CSS, JavaScript, TypeScript fundamentals',
+				'React, Next.js, React Native, Angular experience',
+				'Focus on accessible, maintainable UI systems'
+			]
 		},
 		{
-			title: 'Design Systems',
-			description: 'Accessible component libraries and design tokens that accelerate teams.',
-			icon: '🎨'
+			title: 'Backend & Architecture',
+			description: 'Designing APIs and services that keep pace with product growth.',
+			icon: '🛠️',
+			points: [
+				'NestJS, Express.js services with MongoDB & SQL stores',
+				'Integration with payment providers and AI assistants',
+				'Experience shaping data models and system flows'
+			]
 		},
 		{
-			title: 'Data Visualization',
-			description: 'Transforming complex datasets into intuitive, decision-ready insights.',
-			icon: '📊'
+			title: 'Cloud Delivery & Collaboration',
+			description: 'Operational excellence from infrastructure to team process.',
+			icon: '☁️',
+			points: [
+				'AWS (S3, EC2), GCP, Firebase deployments and monitoring',
+				'Stripe, Google/Apple Payment integrations',
+				'Agile/Scrum practice, cross-functional collaboration, Git workflows'
+			]
 		}
 	];
 
 	const projectData = [
 		{
-			title: 'Project Nebula',
+			title: 'Accumulus AI Flight Operations',
 			description:
-				'A collaborative code editor with realtime presence, conflict resolution, and Monaco-driven experiences.',
-			tags: ['React', 'Node.js', 'WebSocket'],
-			link: '#'
+				'Unified airline dashboards and mobile tooling delivering live operational context for pilots and crews.',
+			tags: ['React', 'React Native', 'AWS', 'Realtime'],
+			link: undefined
 		},
 		{
-			title: 'QuantumLeap AI',
+			title: 'Optimal Vest Wealth Platform',
 			description:
-				'An AI-powered visualization suite translating ML outputs into interactive storytelling dashboards.',
-			tags: ['Python', 'D3.js', 'Flask'],
-			link: '#'
+				'Fintech backend and CRM that combine AI-guided investment chatbots with portfolio insights.',
+			tags: ['NestJS', 'MongoDB', 'AI', 'CRM'],
+			link: undefined
 		},
 		{
-			title: 'DeFi Dashboard',
+			title: 'JDI Central Marketplace',
 			description:
-				'A multi-chain hub surfacing wallet analytics, yield strategies, and governance workflows.',
-			tags: ['Next.js', 'Ethers.js', 'Solidity'],
-			link: '#'
+				'Web marketplace framework connecting freelancers, agencies, and employers from day zero.',
+			tags: ['Next.js', 'Design System', 'Mentorship'],
+			link: undefined
+		},
+		{
+			title: 'Lylo Car Rentals',
+			description:
+				'Mobile marketplace for reserving rental cars with on-demand handoff and logistics tracking.',
+			tags: ['React Native', 'Firebase', 'CI/CD'],
+			link: undefined
+		},
+		{
+			title: 'Blimobil Automotive Commerce',
+			description:
+				'Cross-platform buying/selling suite for dealers including CRM workflows and secure deployments.',
+			tags: ['React Native', 'Stripe', 'DevOps'],
+			link: undefined
+		},
+		{
+			title: 'ReferReach Community Referrals',
+			description:
+				'Cross-platform app powering community referrals with admin analytics and feature experiments.',
+			tags: ['React Native', 'Firebase', 'Analytics'],
+			link: undefined
+		},
+		{
+			title: 'Simply Wealth Advisor Tools',
+			description:
+				'Advisor dashboard delivering portfolio calculations, dynamic visualizations, and performance upgrades.',
+			tags: ['Angular', 'NestJS', 'Charts'],
+			link: undefined
 		}
 	];
 
 	const experienceData = [
 		{
-			role: 'Senior Frontend Developer',
-			company: 'Innovate Inc.',
-			timeframe: '2022 — Present',
-			description:
-				'Leading the evolution of a unified design system, uplifting build velocity by 30% and enabling multi-brand experiences.'
+			role: 'Software Developer',
+			company: 'TechJDI · Accumulus AI',
+			timeframe: 'Jun 2022 — Sep 2025',
+			bullets: [
+				'Helped ship web and mobile apps surfacing real-time operational context for airline teams.',
+				'Partnered with designers and PMs to refine prototypes into production-ready experiences.',
+				'Resolved performance pain points and stabilized critical user journeys.',
+				'Activated stakeholder insights to iterate on usability and drive product improvements.'
+			]
 		},
 		{
-			role: 'Software Engineer',
-			company: 'Tech Solutions LLC',
-			timeframe: '2020 — 2022',
-			description:
-				'Drove full-stack feature delivery for a global e-commerce platform serving 5M+ monthly users.'
+			role: 'Software Developer',
+			company: 'TechJDI · TalentJDI',
+			timeframe: 'Jun 2022 — Sep 2025',
+			bullets: [
+				'Built customizable landing pages that marketing teams could update without engineering support.',
+				'Maintained and monitored production servers for high uptime.',
+				'Shipped fast-moving campaign features on aggressive timelines.'
+			]
+		},
+		{
+			role: 'Fullstack Developer',
+			company: 'Optimal Vest',
+			timeframe: '2023 — 2024',
+			bullets: [
+				'Implemented backend services and data models powering AI-guided investment insights.',
+				'Developed CRM tooling for clients to manage portfolio statistics and calculations.'
+			]
+		},
+		{
+			role: 'Frontend Lead',
+			company: 'JDI Central',
+			timeframe: '2023',
+			bullets: [
+				'Established the project’s front-end foundations for a freelancer/employer marketplace.',
+				'Mentored interns, reviewing implementation and unblocking delivery.'
+			]
+		},
+		{
+			role: 'Software Developer',
+			company: 'Lylo',
+			timeframe: '2023',
+			bullets: [
+				'Launched a rental car marketplace with location-based booking experiences.',
+				'Set up repos, environments, and CI/CD flows; participated in client demos to align on scope.'
+			]
+		},
+		{
+			role: 'Software Developer',
+			company: 'Blimobil',
+			timeframe: '2023',
+			bullets: [
+				'Delivered mobile experiences for buyers and dealers in the used car marketplace.',
+				'Configured server environments, SSL, and CRM features for order management.'
+			]
+		},
+		{
+			role: 'Software Developer',
+			company: 'ReferReach',
+			timeframe: '2023',
+			bullets: [
+				'Enhanced cross-platform apps that fuel community-based referrals.',
+				'Implemented CRM analytics so clients could track user behavior and engagement.'
+			]
+		},
+		{
+			role: 'Software Developer',
+			company: 'Simply Wealth',
+			timeframe: '2023',
+			bullets: [
+				'Built advisor tooling with automated calculations and interactive financial charts.',
+				'Optimized performance and demoed updates through agile rhythms.'
+			]
+		},
+		{
+			role: 'Frontend Developer Intern',
+			company: 'Phuong Nam Digital',
+			timeframe: 'Apr 2022 — Jun 2022',
+			bullets: [
+				'Converted Photoshop designs into responsive landing pages with vanilla HTML, CSS, JS.',
+				'Shipped an education web app integrating backend APIs while following mentor guidance.'
+			]
 		}
 	];
 
-	const testimonialData = [
-		{
-			quote:
-				"John's attention to detail is unmatched. He delivered a pixel-perfect product ahead of schedule and was a pleasure to work with.",
-			author: 'Jane Smith',
-			role: 'Product Manager · Innovate Inc.'
-		},
-		{
-			quote:
-				"An incredibly talented engineer who can tackle any challenge thrown his way. John's problem-solving skills are top-notch.",
-			author: 'Mike Johnson',
-			role: 'Lead Engineer · Tech Solutions LLC'
+	const education = {
+		institution: 'University of Science',
+		degree: 'Bachelor of Software Engineering',
+		timeframe: 'Graduated November 2023',
+		gpa: '3.39 / 4.0',
+		summary:
+			'A solid academic foundation paired with industry projects, strengthening collaboration, task delegation, and deadline management.',
+		highlights: [
+			'Participated in weekly faculty syncs to align on roadmap and deliverables.',
+			'Built structured workflows for testing, debugging, and shipping features.',
+			'Produced technical documentation and presentations in English.'
+		],
+		project: {
+			name: 'Job Marketplace Platform',
+			description:
+				'A web portal matching students with company opportunities using automated assessments.',
+			bullets: [
+				'Engineered role-based dashboards for students, companies, and administrators.',
+				'Implemented interview question banks (coding, writing, multiple-choice) that feed into job applications.',
+				'Enabled companies to require assessments before applications and track candidate progress.'
+			]
 		}
-	];
+	};
 
 	function handleScroll() {
 		isScrolled = window.scrollY > 10;
@@ -142,18 +268,18 @@
 	<NavBar {navLinks} {isScrolled} />
 
 	<div class="relative z-10">
-		<main class="container mx-auto px-6 pb-32 pt-24 md:px-12">
-			<HeroSection techStack={techStack} />
+		<main class="container mx-auto px-6 pt-24 pb-32 md:px-12">
+			<HeroSection {techStack} />
 			<AboutSection />
-			<ServicesSection {services} />
+			<SkillsSection {skills} />
 			<ExperienceSection {experienceData} />
 			<ProjectsSection {projectData} />
-			<TestimonialsSection {testimonialData} />
+			<EducationSection {education} />
 			<ContactSection />
 		</main>
 
 		<footer class="py-8 text-center text-slate-400">
-			<p>&copy; 2025 John Doe. Designed with clarity, engineered with care.</p>
+			<p>&copy; 2025 Hoàng Thiện Nhân. Designed with clarity, engineered with care.</p>
 		</footer>
 	</div>
 </div>

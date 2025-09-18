@@ -119,6 +119,13 @@ body::before {
 	color: #22d3ee;
 }
 
+.glass-card-static {
+	background: var(--card-bg);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	transition: all 0.3s ease;
+}
+
 .glass-card {
 	background: var(--card-bg);
 	backdrop-filter: blur(12px);
