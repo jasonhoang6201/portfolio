@@ -14,7 +14,7 @@
 				Jason Hoang
 			</h1>
 			<p class="main-text-dim max-w-2xl text-lg leading-relaxed">
-				a Software Developer with 3+ years of experience in building scalable web and mobile
+				A Software Developer with 3+ years of experience in building scalable web and mobile
 				applications, passionate about delivering seamless solutions and leveraging modern
 				technologies to solve real-world problems.
 			</p>

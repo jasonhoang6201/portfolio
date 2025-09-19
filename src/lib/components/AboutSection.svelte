@@ -1,70 +1,111 @@
 <script lang="ts">
 	import { fadeIn } from '$lib/actions/fadeIn';
+	import techjdi from '$lib/assets/techjdi.png';
+	import crosstech from '$lib/assets/crosstech.png';
+	import phuongNamDigital from '$lib/assets/phuongNamDigital.png';
 </script>
 
 <section use:fadeIn id="about" class="fade-in-section py-24">
 	<h2 class="mb-12 text-center text-4xl font-bold">
 		<span class="text-glow-blue bounce-hover">About Me</span>
 	</h2>
-	<div class="container mx-auto grid gap-12 px-6 md:grid-cols-2 md:px-12">
-		<div class="space-y-6">
-			<p class="main-text-dim text-lg leading-relaxed">
-				Ambitious fullstack developer eager to learn, adapt, and grow into a future solution
-				architect. I love translating product goals into reliable digital experiences—from the
-				interfaces teams see to the systems running underneath.
-			</p>
-			<div class="grid gap-6 sm:grid-cols-2">
-				<div class="glass-card rounded-2xl p-6">
-					<p class="text-xs tracking-widest text-emerald-300/80 uppercase">Location</p>
-					<p class="mt-2 text-lg font-semibold text-white">
-						14 Thống Nhất, Phú Thọ Hòa, Tân Phú, HCM
-					</p>
-				</div>
-				<div class="glass-card rounded-2xl p-6">
-					<p class="text-xs tracking-widest text-emerald-300/80 uppercase">Contact</p>
-					<p class="mt-2 text-lg font-semibold text-white">jasonhoang6201@gmail.com</p>
-					<p class="main-text-dim text-sm">0919881497</p>
-				</div>
-			</div>
+	<div class="container mx-auto grid gap-6 px-6 md:grid-cols-12 md:px-12">
+		<div class="col-span-8 space-y-6">
 			<div class="glass-card rounded-2xl p-6">
-				<p class="text-xs tracking-widest text-emerald-300/80 uppercase">Objective</p>
-				<p class="main-text-dim mt-3 leading-relaxed">
-					In the short term I’m focused on sharpening my fullstack impact; long term I’m building
-					toward solution architecture, pairing technical breadth with communication and leadership.
-				</p>
-			</div>
-		</div>
-		<div class="space-y-6">
-			<div class="glass-card rounded-2xl p-6">
-				<h3 class="text-xl font-semibold text-white">Soft Skills</h3>
+				<h3 class="text-xl font-semibold text-white">👋 Hello, I'm Jason (Nhân in Vietnamese)</h3>
 				<ul class="mt-4 space-y-2 text-sky-100/90">
-					<li class="flex items-start gap-2">
-						<span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-						<span>Multi-tasking across parallel features while keeping quality high.</span>
+					<li class="flex items-start">
+						<p class="text-lg">
+							A passionate <span class="text-emerald-400">Software Developer</span> with
+							<span class="text-emerald-400">3+ years</span> of experience building scalable web and
+							mobile applications
+						</p>
 					</li>
-					<li class="flex items-start gap-2">
-						<span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-						<span>Effective time management to meet tight marketing and product deadlines.</span>
+
+					<div class="divider my-4 h-px bg-slate-700/40"></div>
+
+					<li class="flex items-start">
+						<span class="main-text-dim">
+							I have experience involved in the whole process of creating a product, from building
+							the very first version to making sure it runs fast and smoothly for users. I've had
+							the chance to work on interesting projects in a bunch of different fields, like
+							Fintech, Social Media, Aviation and E-commerce.
+						</span>
 					</li>
-					<li class="flex items-start gap-2">
-						<span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-						<span>Close collaboration with developers, designers, QA, and managers.</span>
-					</li>
-					<li class="flex items-start gap-2">
-						<span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-						<span>Problem-solving that unblocks projects and improves outcomes.</span>
-					</li>
-					<li class="flex items-start gap-2">
-						<span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-						<span>Adaptability—learning new technologies and requirements at pace.</span>
+					<li class="flex items-start">
+						<span class="main-text-dim">
+							Beyond work, I love learning about new technologies, finding creative ways to use new
+							tools to solve real problems.
+						</span>
 					</li>
 				</ul>
+
+				<div class="divider my-4 h-px bg-slate-700/40"></div>
+
+				<span class="text-white"> Soft skills</span>
+				{#each ['Multi-tasking', 'Time management', 'Problem-solving', 'Adaptability'] as skill}
+					<div class="mt-2 flex items-start gap-2 text-sky-100/90">
+						<span class="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+						<span class="main-text-dim">{skill}</span>
+					</div>
+				{/each}
 			</div>
+
 			<div class="glass-card rounded-2xl p-6">
 				<h3 class="text-xl font-semibold text-white">Language</h3>
 				<p class="main-text-dim mt-3">
-					English: comfortable discussing features, writing technical docs, and researching
-					solutions.
+					<span class="text-emerald-400">English:</span> comfortable discussing features, writing technical
+					docs, and researching solutions.
+				</p>
+			</div>
+		</div>
+		<div class="col-span-4 space-y-6">
+			<div class="glass-card rounded-2xl p-6">
+				<div class="flex items-center">
+					<img src={techjdi} alt="TechJDI" class="h-10 w-10 rounded-[8px] object-cover" />
+					<div class="ml-3">
+						<h3 class="text-lg font-semibold text-white">TechJDI</h3>
+						<p class="text-[12px] tracking-wide text-emerald-300/80 uppercase">
+							Jun 2022 — Sep 2025
+						</p>
+					</div>
+				</div>
+				<p class="main-text-dim mt-2">Software Developer</p>
+				<p class="mt-2 text-[14px]">
+					Building core features under guidance, ensuring timely delivery, and adapting quickly to
+					diverse industries and project requirements.
+				</p>
+			</div>
+
+			<div class="glass-card rounded-2xl p-6">
+				<div class="flex items-center">
+					<img src={crosstech} alt="TechJDI" class="h-10 w-10 rounded-[8px] object-cover" />
+					<div class="ml-3">
+						<h3 class="text-lg font-semibold text-white">CrossTech</h3>
+						<p class="text-[12px] tracking-wide text-emerald-300/80 uppercase">Freelance</p>
+					</div>
+				</div>
+				<p class="main-text-dim mt-2">Frontend Developer</p>
+				<p class="mt-2 text-[14px]">
+					Developed applications based on user requirements, implementing responsive layouts,
+					maintaining code quality, and ensuring alignment with specifications.
+				</p>
+			</div>
+
+			<div class="glass-card rounded-2xl p-6">
+				<div class="flex items-center">
+					<img src={phuongNamDigital} alt="TechJDI" class="h-10 w-10 rounded-[8px] object-cover" />
+					<div class="ml-3">
+						<h3 class="text-lg font-semibold text-white">Phuong Nam Digital</h3>
+						<p class="text-[12px] tracking-wide text-emerald-300/80 uppercase">
+							Apr 2022 — Jun 2022
+						</p>
+					</div>
+				</div>
+				<p class="main-text-dim mt-2">Frontend Developer Intern</p>
+				<p class="mt-2 text-[14px]">
+					Worked on in-house products, developing web features to support courses and interactive
+					learning.
 				</p>
 			</div>
 		</div>
