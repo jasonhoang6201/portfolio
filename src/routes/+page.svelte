@@ -4,6 +4,7 @@
 	import FloatingDots from '$lib/components/FloatingDots.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
 	import AboutSection from '$lib/components/AboutSection.svelte';
+	import TechStackSection from '$lib/components/TechStackSection.svelte';
 	import SkillsSection from '$lib/components/SkillsSection.svelte';
 	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
 	import ExperienceSection from '$lib/components/ExperienceSection.svelte';
@@ -25,26 +26,12 @@
 	const navLinks = [
 		{ label: 'Home', href: 'home' },
 		{ label: 'About', href: 'about' },
+		{ label: 'Stack', href: 'tech-stack' },
 		{ label: 'Skills', href: 'skills' },
 		{ label: 'Experience', href: 'experience' },
 		{ label: 'Projects', href: 'projects' },
 		{ label: 'Education', href: 'education' },
 		{ label: 'Contact', href: 'contact' }
-	];
-
-	const techStack = [
-		{ name: 'TypeScript', icon: 'typescript/typescript-original.svg' },
-		{ name: 'React', icon: 'react/react-original.svg' },
-		{ name: 'Next.js', icon: 'nextjs/nextjs-original.svg' },
-		{ name: 'React Native', icon: 'react/react-original.svg' },
-		{ name: 'Angular', icon: 'angularjs/angularjs-original.svg' },
-		{ name: 'NestJS', icon: 'nestjs/nestjs-plain.svg' },
-		{ name: 'Express.js', icon: 'express/express-original.svg' },
-		{ name: 'MongoDB', icon: 'mongodb/mongodb-original.svg' },
-		{ name: 'PostgreSQL', icon: 'postgresql/postgresql-original.svg' },
-		{ name: 'AWS', icon: 'amazonwebservices/amazonwebservices-original.svg' },
-		{ name: 'Firebase', icon: 'firebase/firebase-plain.svg' },
-		{ name: 'Stripe', icon: 'stripe/stripe-original.svg' }
 	];
 
 	const skills = [
@@ -279,9 +266,10 @@
 	<ScrollProgress progress={scrollProgress} />
 
 	<div class="relative z-10">
-		<main class="container mx-auto px-6 pt-[60px] pb-32 md:px-12">
+		<main class="container mx-auto pt-[60px] pb-32">
 			<HeroSection />
 			<AboutSection />
+			<TechStackSection />
 			<SkillsSection {skills} />
 			<ExperienceSection {experienceData} />
 			<ProjectsSection {projectData} />

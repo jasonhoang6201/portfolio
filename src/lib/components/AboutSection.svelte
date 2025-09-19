@@ -9,7 +9,7 @@
 	<h2 class="mb-12 text-center text-4xl font-bold">
 		<span class="text-glow-blue bounce-hover">About Me</span>
 	</h2>
-	<div class="container mx-auto grid gap-6 px-6 md:grid-cols-12 md:px-12">
+	<div class="container mx-auto gap-6 px-6 md:grid md:grid-cols-12 md:px-12">
 		<div class="col-span-8 space-y-6">
 			<div class="glass-card rounded-2xl p-6">
 				<h3 class="text-xl font-semibold text-white">👋 Hello, I'm Jason (Nhân in Vietnamese)</h3>
@@ -59,7 +59,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="col-span-4 space-y-6">
+		<div class="col-span-4 mt-6 w-full space-y-6 md:mt-0">
 			<div class="glass-card rounded-2xl p-6">
 				<div class="flex items-center">
 					<img src={techjdi} alt="TechJDI" class="h-10 w-10 rounded-[8px] object-cover" />
