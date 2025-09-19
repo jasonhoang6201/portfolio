@@ -29,7 +29,7 @@
 				<a
 					href={cv}
 					download
-					class="inline-flex items-center justify-center rounded-full border border-sky-300/60 px-6 py-3 font-semibold text-sky-100 transition-all duration-300 hover:border-emerald-300/70 hover:text-emerald-100"
+					class="inline-flex items-center justify-center rounded-full border border-sky-300/60 px-6 py-3 font-semibold text-sky-100 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300/70 hover:text-emerald-100"
 				>
 					Download CV
 				</a>

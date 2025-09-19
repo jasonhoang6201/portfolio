@@ -269,7 +269,7 @@
 <svelte:window on:scroll={handleScroll} on:mousemove={handleMouseMove} />
 
 <div
-	class="pointer-events-none fixed top-0 left-0 z-0 h-96 w-96 rounded-full bg-sky-500/40 blur-3xl"
+	class="pointer-events-none fixed top-0 left-0 z-0 h-96 w-96 rounded-full bg-sky-500/20 blur-3xl"
 	style="transform: translate({cursorPosition.x - 192}px, {cursorPosition.y - 192}px)"
 ></div>
 
@@ -288,9 +288,5 @@
 			<EducationSection {education} />
 			<ContactSection />
 		</main>
-
-		<footer class="py-8 text-center text-slate-400">
-			<p>&copy; 2025 Hoàng Thiện Nhân. Designed with clarity, engineered with care.</p>
-		</footer>
 	</div>
 </div>
