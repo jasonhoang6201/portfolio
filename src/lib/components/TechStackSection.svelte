@@ -116,7 +116,7 @@
 				{#each sections as section, index (section.id + index)}
 					<div class="space-y-3">
 						<h3 class="text-xl font-semibold text-white">{section.label}</h3>
-						<div class="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+						<div class="grid grid-cols-3 gap-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
 							{#each section.items as tech (tech.name)}
 								<TechStackCard name={tech.name} iconSrc={`${iconBase}/${tech.icon}`} />
 							{/each}
@@ -125,7 +125,7 @@
 				{/each}
 			</div>
 		{:else}
-			<div class="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+			<div class="mt-12 grid grid-cols-3 gap-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
 				{#each filteredStack as tech, index (tech.name + index)}
 					<TechStackCard name={tech.name} iconSrc={`${iconBase}/${tech.icon}`} />
 				{/each}

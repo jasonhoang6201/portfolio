@@ -16,9 +16,9 @@
 				<ul class="mt-4 space-y-2 text-sky-100/90">
 					<li class="flex items-start">
 						<p class="text-lg">
-							A passionate <span class="text-emerald-400">Software Developer</span> with
-							<span class="text-emerald-400">3+ years</span> of experience building scalable web and
-							mobile applications
+							A passionate <span class="text-gradient">Software Developer</span> with
+							<span class="text-gradient">3+ years</span> of experience building scalable web and mobile
+							applications
 						</p>
 					</li>
 
@@ -47,19 +47,17 @@
 						<span class="text-white"> Soft skills</span>
 						{#each ['Multi-tasking', 'Time management', 'Problem-solving', 'Adaptability'] as skill}
 							<div class="mt-2 flex items-start gap-2 text-sky-100/90">
-								<span class="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+								<span class="dot-gradient"></span>
 								<span class="main-text-dim">{skill}</span>
 							</div>
 						{/each}
 					</div>
 
 					<div class="flex-1">
-						<span class="text-white">
-							Languages: <span class="text-emerald-400">English</span></span
-						>
+						<span class="text-white"> Languages: <span class="text-gradient">English</span></span>
 						{#each ['Comfortable discussing features', 'Writing technical docs'] as skill}
 							<div class="mt-2 flex items-start gap-2 text-sky-100/90">
-								<span class="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+								<span class="dot-gradient"></span>
 								<span class="main-text-dim">{skill}</span>
 							</div>
 						{/each}
@@ -69,13 +67,17 @@
 
 			<div class="glass-card rounded-2xl p-6">
 				<h3 class="text-xl font-semibold text-white">Education</h3>
-				<p class="main-text-dim mt-3">
-					<span class="text-emerald-400">University of Science:</span> Bachelor of Software Engineering
-					, Graduated November 2023
-				</p>
-				<p class="main-text-dim mt-2">
-					<span class="text-emerald-400">GPA</span> 3.39 / 4.0
-				</p>
+				<div class="mt-4 flex flex-col gap-2 text-sky-100/90">
+					<div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+						<p class="text-lg font-semibold text-white">University of Science (VNUHCM)</p>
+						<span class="text-gradient text-[12px] font-medium tracking-wide uppercase">
+							2019 — 2023
+						</span>
+					</div>
+					<p class="text-gradient text-sm font-medium tracking-[0.18em] uppercase">
+						<span class="main-text-dim">Bachelor of Software Engineering</span> · GPA 3.39 / 4.0
+					</p>
+				</div>
 			</div>
 		</div>
 		<div class="col-span-4 mt-6 w-full space-y-6 md:mt-0">
@@ -84,9 +86,7 @@
 					<img src={techjdi} alt="TechJDI" class="h-10 w-10 rounded-[8px] object-cover" />
 					<div class="ml-3">
 						<h3 class="text-lg font-semibold text-white">TechJDI</h3>
-						<p class="text-[12px] tracking-wide text-emerald-300/80 uppercase">
-							Jun 2022 — Sep 2025
-						</p>
+						<p class="text-gradient text-[12px] tracking-wide uppercase">Jun 2022 — Sep 2025</p>
 					</div>
 				</div>
 				<p class="main-text-dim mt-2">Software Developer</p>
@@ -101,7 +101,7 @@
 					<img src={crosstech} alt="TechJDI" class="h-10 w-10 rounded-[8px] object-cover" />
 					<div class="ml-3">
 						<h3 class="text-lg font-semibold text-white">CrossTech</h3>
-						<p class="text-[12px] tracking-wide text-emerald-300/80 uppercase">Freelance</p>
+						<p class="text-gradient text-[12px] tracking-wide uppercase">Freelance</p>
 					</div>
 				</div>
 				<p class="main-text-dim mt-2">Frontend Developer</p>
@@ -116,9 +116,7 @@
 					<img src={phuongNamDigital} alt="TechJDI" class="h-10 w-10 rounded-[8px] object-cover" />
 					<div class="ml-3">
 						<h3 class="text-lg font-semibold text-white">Phuong Nam Digital</h3>
-						<p class="text-[12px] tracking-wide text-emerald-300/80 uppercase">
-							Apr 2022 — Jun 2022
-						</p>
+						<p class="text-gradient text-[12px] tracking-wide uppercase">Apr 2022 — Jun 2022</p>
 					</div>
 				</div>
 				<p class="main-text-dim mt-2">Frontend Developer Intern</p>
@@ -130,3 +128,22 @@
 		</div>
 	</div>
 </section>
+
+<style>
+	:global(.text-gradient) {
+		background-image: linear-gradient(135deg, rgba(56, 189, 248, 0.95), rgba(45, 212, 191, 0.95));
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+	}
+
+	:global(.dot-gradient) {
+		margin-top: 0.5rem;
+		height: 0.375rem;
+		width: 0.375rem;
+		border-radius: 9999px;
+		background-image: linear-gradient(135deg, rgba(56, 189, 248, 0.9), rgba(45, 212, 191, 0.9));
+		box-shadow: 0 0 12px rgba(45, 212, 191, 0.45);
+		flex-shrink: 0;
+	}
+</style>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import AboutSection from '$lib/components/AboutSection.svelte';
 	import ContactSection from '$lib/components/ContactSection.svelte';
-	import EducationSection from '$lib/components/EducationSection.svelte';
 	import FloatingDots from '$lib/components/FloatingDots.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
 	import NavBar from '$lib/components/NavBar.svelte';
@@ -27,7 +26,6 @@
 		{ label: 'Stack', href: 'tech-stack' },
 		{ label: 'Experience', href: 'experience' },
 		{ label: 'Projects', href: 'projects' },
-		{ label: 'Education', href: 'education' },
 		{ label: 'Contact', href: 'contact' }
 	];
 
@@ -83,30 +81,6 @@
 		}
 	];
 
-	const education = {
-		institution: 'University of Science',
-		degree: 'Bachelor of Software Engineering',
-		timeframe: 'Graduated November 2023',
-		gpa: '3.39 / 4.0',
-		summary:
-			'A solid academic foundation paired with industry projects, strengthening collaboration, task delegation, and deadline management.',
-		highlights: [
-			'Participated in weekly faculty syncs to align on roadmap and deliverables.',
-			'Built structured workflows for testing, debugging, and shipping features.',
-			'Produced technical documentation and presentations in English.'
-		],
-		project: {
-			name: 'Job Marketplace Platform',
-			description:
-				'A web portal matching students with company opportunities using automated assessments.',
-			bullets: [
-				'Engineered role-based dashboards for students, companies, and administrators.',
-				'Implemented interview question banks (coding, writing, multiple-choice) that feed into job applications.',
-				'Enabled companies to require assessments before applications and track candidate progress.'
-			]
-		}
-	};
-
 	function handleScroll() {
 		if (typeof document === 'undefined') {
 			return;
@@ -148,7 +122,6 @@
 			<AboutSection />
 			<TechStackSection />
 			<ProjectsSection {projectData} />
-			<EducationSection {education} />
 			<ContactSection />
 		</main>
 	</div>
