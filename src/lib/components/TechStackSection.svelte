@@ -31,9 +31,9 @@
 		// Frontend
 		{ name: 'Angular', icon: 'angular/angular-original.svg', categories: ['frontend'] },
 		{ name: 'Ant Design', icon: 'antdesign/antdesign-original.svg', categories: ['frontend'] },
-		{ name: 'Expo', icon: 'expo/expo-original.svg', categories: ['frontend'] },
 		{ name: 'JavaScript', icon: 'javascript/javascript-original.svg', categories: ['frontend'] },
 		{ name: 'Next.js', icon: 'nextjs/nextjs-original.svg', categories: ['frontend'] },
+		{ name: 'React', icon: 'react/react-original.svg', categories: ['frontend'] },
 		{ name: 'React Native', icon: 'react/react-original.svg', categories: ['frontend'] },
 		{
 			name: 'Tailwind CSS',
@@ -50,7 +50,7 @@
 		// Database
 		{ name: 'Firebase', icon: 'firebase/firebase-plain.svg', categories: ['database'] },
 		{ name: 'MongoDB', icon: 'mongodb/mongodb-original.svg', categories: ['database'] },
-		{ name: 'MySQL', icon: 'mysql/mysql-original.svg', categories: ['database'] },
+		{ name: 'MySQL', icon: 'mysql/mysql-original-wordmark.svg', categories: ['database'] },
 		{ name: 'PostgreSQL', icon: 'postgresql/postgresql-original.svg', categories: ['database'] },
 		{ name: 'Redis', icon: 'redis/redis-original.svg', categories: ['database'] },
 
@@ -84,7 +84,7 @@
 
 <section use:fadeIn id="tech-stack" class="fade-in-section py-24">
 	<div class="container mx-auto px-6 md:px-12">
-		<div class="mb-4 text-center">
+		<div class="mb-6 text-center">
 			<p class="text-sm font-semibold tracking-[0.3em] text-emerald-400 uppercase">
 				Technology Stack
 			</p>
@@ -113,22 +113,20 @@
 
 		{#if selectedCategory === 'all'}
 			<div class="mt-4 space-y-4">
-				{#each sections as section (section.id)}
-					{#if section.items.length}
-						<div class="space-y-3">
-							<h3 class="text-xl font-semibold text-white">{section.label}</h3>
-							<div class="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
-								{#each section.items as tech (tech.name)}
-									<TechStackCard name={tech.name} iconSrc={`${iconBase}/${tech.icon}`} />
-								{/each}
-							</div>
+				{#each sections as section, index (section.id + index)}
+					<div class="space-y-3">
+						<h3 class="text-xl font-semibold text-white">{section.label}</h3>
+						<div class="grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+							{#each section.items as tech (tech.name)}
+								<TechStackCard name={tech.name} iconSrc={`${iconBase}/${tech.icon}`} />
+							{/each}
 						</div>
-					{/if}
+					</div>
 				{/each}
 			</div>
 		{:else}
 			<div class="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
-				{#each filteredStack as tech (tech.name)}
+				{#each filteredStack as tech, index (tech.name + index)}
 					<TechStackCard name={tech.name} iconSrc={`${iconBase}/${tech.icon}`} />
 				{/each}
 			</div>
