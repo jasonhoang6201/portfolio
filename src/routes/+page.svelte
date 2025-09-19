@@ -275,12 +275,12 @@
 
 <div class="relative min-h-screen overflow-hidden antialiased">
 	<FloatingDots />
-		<NavBar {navLinks} {isScrolled} />
-		<ScrollProgress progress={scrollProgress} />
+	<NavBar {navLinks} {isScrolled} />
+	<ScrollProgress progress={scrollProgress} />
 
 	<div class="relative z-10">
-		<main class="container mx-auto px-6 pt-24 pb-32 md:px-12">
-			<HeroSection {techStack} />
+		<main class="container mx-auto px-6 pt-[60px] pb-32 md:px-12">
+			<HeroSection />
 			<AboutSection />
 			<SkillsSection {skills} />
 			<ExperienceSection {experienceData} />

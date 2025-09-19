@@ -4,7 +4,7 @@
 
 <section use:fadeIn id="about" class="fade-in-section py-24">
 	<h2 class="mb-12 text-center text-4xl font-bold">
-		<span class="text-glow-blue">About Hoàng Thiện Nhân</span>
+		<span class="text-glow-blue bounce-hover">About Me</span>
 	</h2>
 	<div class="container mx-auto grid gap-12 px-6 md:grid-cols-2 md:px-12">
 		<div class="space-y-6">
@@ -65,12 +65,6 @@
 				<p class="main-text-dim mt-3">
 					English: comfortable discussing features, writing technical docs, and researching
 					solutions.
-				</p>
-			</div>
-			<div class="glass-card rounded-2xl p-6">
-				<h3 class="text-xl font-semibold text-white">Tooling & AI</h3>
-				<p class="main-text-dim mt-3">
-					Git-based collaboration, Agile/Scrum workflows, plus AI-assisted research and delivery.
 				</p>
 			</div>
 		</div>
