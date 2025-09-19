@@ -1,16 +1,14 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import NavBar from '$lib/components/NavBar.svelte';
+	import AboutSection from '$lib/components/AboutSection.svelte';
+	import ContactSection from '$lib/components/ContactSection.svelte';
+	import EducationSection from '$lib/components/EducationSection.svelte';
 	import FloatingDots from '$lib/components/FloatingDots.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
-	import AboutSection from '$lib/components/AboutSection.svelte';
-	import TechStackSection from '$lib/components/TechStackSection.svelte';
-	import SkillsSection from '$lib/components/SkillsSection.svelte';
+	import NavBar from '$lib/components/NavBar.svelte';
 	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
-	import ExperienceSection from '$lib/components/ExperienceSection.svelte';
-	import EducationSection from '$lib/components/EducationSection.svelte';
-	import ContactSection from '$lib/components/ContactSection.svelte';
 	import ScrollProgress from '$lib/components/ScrollProgress.svelte';
+	import TechStackSection from '$lib/components/TechStackSection.svelte';
+	import { onMount } from 'svelte';
 
 	onMount(() => {
 		if (typeof document !== 'undefined') {
@@ -27,44 +25,10 @@
 		{ label: 'Home', href: 'home' },
 		{ label: 'About', href: 'about' },
 		{ label: 'Stack', href: 'tech-stack' },
-		{ label: 'Skills', href: 'skills' },
 		{ label: 'Experience', href: 'experience' },
 		{ label: 'Projects', href: 'projects' },
 		{ label: 'Education', href: 'education' },
 		{ label: 'Contact', href: 'contact' }
-	];
-
-	const skills = [
-		{
-			title: 'Frontend Engineering',
-			description: 'Crafting responsive web and mobile interfaces across modern ecosystems.',
-			icon: '🖥️',
-			points: [
-				'HTML, CSS, JavaScript, TypeScript fundamentals',
-				'React, Next.js, React Native, Angular experience',
-				'Focus on accessible, maintainable UI systems'
-			]
-		},
-		{
-			title: 'Backend & Architecture',
-			description: 'Designing APIs and services that keep pace with product growth.',
-			icon: '🛠️',
-			points: [
-				'NestJS, Express.js services with MongoDB & SQL stores',
-				'Integration with payment providers and AI assistants',
-				'Experience shaping data models and system flows'
-			]
-		},
-		{
-			title: 'Cloud Delivery & Collaboration',
-			description: 'Operational excellence from infrastructure to team process.',
-			icon: '☁️',
-			points: [
-				'AWS (S3, EC2), GCP, Firebase deployments and monitoring',
-				'Stripe, Google/Apple Payment integrations',
-				'Agile/Scrum practice, cross-functional collaboration, Git workflows'
-			]
-		}
 	];
 
 	const projectData = [
@@ -116,93 +80,6 @@
 				'Advisor dashboard delivering portfolio calculations, dynamic visualizations, and performance upgrades.',
 			tags: ['Angular', 'NestJS', 'Charts'],
 			link: undefined
-		}
-	];
-
-	const experienceData = [
-		{
-			role: 'Software Developer',
-			company: 'TechJDI · Accumulus AI',
-			timeframe: 'Jun 2022 — Sep 2025',
-			bullets: [
-				'Helped ship web and mobile apps surfacing real-time operational context for airline teams.',
-				'Partnered with designers and PMs to refine prototypes into production-ready experiences.',
-				'Resolved performance pain points and stabilized critical user journeys.',
-				'Activated stakeholder insights to iterate on usability and drive product improvements.'
-			]
-		},
-		{
-			role: 'Software Developer',
-			company: 'TechJDI · TalentJDI',
-			timeframe: 'Jun 2022 — Sep 2025',
-			bullets: [
-				'Built customizable landing pages that marketing teams could update without engineering support.',
-				'Maintained and monitored production servers for high uptime.',
-				'Shipped fast-moving campaign features on aggressive timelines.'
-			]
-		},
-		{
-			role: 'Fullstack Developer',
-			company: 'Optimal Vest',
-			timeframe: '2023 — 2024',
-			bullets: [
-				'Implemented backend services and data models powering AI-guided investment insights.',
-				'Developed CRM tooling for clients to manage portfolio statistics and calculations.'
-			]
-		},
-		{
-			role: 'Frontend Lead',
-			company: 'JDI Central',
-			timeframe: '2023',
-			bullets: [
-				'Established the project’s front-end foundations for a freelancer/employer marketplace.',
-				'Mentored interns, reviewing implementation and unblocking delivery.'
-			]
-		},
-		{
-			role: 'Software Developer',
-			company: 'Lylo',
-			timeframe: '2023',
-			bullets: [
-				'Launched a rental car marketplace with location-based booking experiences.',
-				'Set up repos, environments, and CI/CD flows; participated in client demos to align on scope.'
-			]
-		},
-		{
-			role: 'Software Developer',
-			company: 'Blimobil',
-			timeframe: '2023',
-			bullets: [
-				'Delivered mobile experiences for buyers and dealers in the used car marketplace.',
-				'Configured server environments, SSL, and CRM features for order management.'
-			]
-		},
-		{
-			role: 'Software Developer',
-			company: 'ReferReach',
-			timeframe: '2023',
-			bullets: [
-				'Enhanced cross-platform apps that fuel community-based referrals.',
-				'Implemented CRM analytics so clients could track user behavior and engagement.'
-			]
-		},
-		{
-			role: 'Software Developer',
-			company: 'Simply Wealth',
-			timeframe: '2023',
-			bullets: [
-				'Built advisor tooling with automated calculations and interactive financial charts.',
-				'Optimized performance and demoed updates through agile rhythms.'
-			]
-		},
-		{
-			role: 'Frontend Developer Intern',
-			company: 'Phuong Nam Digital',
-			timeframe: 'Apr 2022 — Jun 2022',
-			bullets: [
-				'Converted Photoshop designs into responsive landing pages with vanilla HTML, CSS, JS.',
-				'Shipped an education web app integrating backend APIs while following mentor guidance.'
-			]
 		}
 	];
 
@@ -270,8 +147,6 @@
 			<HeroSection />
 			<AboutSection />
 			<TechStackSection />
-			<SkillsSection {skills} />
-			<ExperienceSection {experienceData} />
 			<ProjectsSection {projectData} />
 			<EducationSection {education} />
 			<ContactSection />

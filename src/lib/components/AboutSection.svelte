@@ -42,20 +42,39 @@
 
 				<div class="divider my-4 h-px bg-slate-700/40"></div>
 
-				<span class="text-white"> Soft skills</span>
-				{#each ['Multi-tasking', 'Time management', 'Problem-solving', 'Adaptability'] as skill}
-					<div class="mt-2 flex items-start gap-2 text-sky-100/90">
-						<span class="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-						<span class="main-text-dim">{skill}</span>
+				<div class="flex justify-between">
+					<div class="flex-1">
+						<span class="text-white"> Soft skills</span>
+						{#each ['Multi-tasking', 'Time management', 'Problem-solving', 'Adaptability'] as skill}
+							<div class="mt-2 flex items-start gap-2 text-sky-100/90">
+								<span class="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+								<span class="main-text-dim">{skill}</span>
+							</div>
+						{/each}
 					</div>
-				{/each}
+
+					<div class="flex-1">
+						<span class="text-white">
+							Languages: <span class="text-emerald-400">English</span></span
+						>
+						{#each ['Comfortable discussing features', 'Writing technical docs'] as skill}
+							<div class="mt-2 flex items-start gap-2 text-sky-100/90">
+								<span class="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+								<span class="main-text-dim">{skill}</span>
+							</div>
+						{/each}
+					</div>
+				</div>
 			</div>
 
 			<div class="glass-card rounded-2xl p-6">
-				<h3 class="text-xl font-semibold text-white">Language</h3>
+				<h3 class="text-xl font-semibold text-white">Education</h3>
 				<p class="main-text-dim mt-3">
-					<span class="text-emerald-400">English:</span> comfortable discussing features, writing technical
-					docs, and researching solutions.
+					<span class="text-emerald-400">University of Science:</span> Bachelor of Software Engineering
+					, Graduated November 2023
+				</p>
+				<p class="main-text-dim mt-2">
+					<span class="text-emerald-400">GPA</span> 3.39 / 4.0
 				</p>
 			</div>
 		</div>
