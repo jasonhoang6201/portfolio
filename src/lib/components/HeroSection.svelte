@@ -3,11 +3,7 @@
 	import cv from '$lib/assets/HOANG THIEN NHAN.pdf';
 </script>
 
-<section
-	id="home"
-	use:fadeIn
-	class="fade-in-section min-height relative flex items-center overflow-hidden"
->
+<section use:fadeIn class="fade-in-section relative flex items-center overflow-hidden py-[10vh]">
 	<!-- Floating particles/orbs for cosmic effect -->
 	<div class="pointer-events-none absolute inset-0">
 		<div

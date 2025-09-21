@@ -90,7 +90,9 @@
 
 	type ProjectTheme = ReturnType<typeof generateCosmicTheme>;
 	const projectThemes: ProjectTheme[] = projectData.map(() => generateCosmicTheme());
-	const visibleProjects = $derived((showAll ? projectData : projectData.slice(0, VISIBLE_COUNT)) as Project[]);
+	const visibleProjects = $derived(
+		(showAll ? projectData : projectData.slice(0, VISIBLE_COUNT)) as Project[]
+	);
 </script>
 
 <section use:fadeIn id="projects" class="fade-in-section relative isolate overflow-hidden py-24">
@@ -107,7 +109,7 @@
 					Highlights
 				</p>
 				<h2
-					class="text-glow mt-4 text-4xl font-bold text-transparent md:text-5xl"
+					class="text-glow mt-4 pb-[4px] text-4xl font-bold text-transparent md:text-5xl"
 					style="background: linear-gradient(90deg, #ffffff 0%, #67e8f9 50%, #c084fc 100%);
 						   background-clip: text;
 						   -webkit-background-clip: text;"
@@ -139,82 +141,82 @@
 							   background: rgba(2, 6, 23, 0.9);"
 						transition:softSlide={{ duration: 260, distance: 18 }}
 					>
-					<!-- Dynamic gradient border overlay -->
-					<span
-						class="pointer-events-none absolute inset-0 rounded-[2rem] border-2 opacity-0 transition-all duration-700 ease-out group-hover:opacity-100"
-						style="border-color: transparent;
+						<!-- Dynamic gradient border overlay -->
+						<span
+							class="pointer-events-none absolute inset-0 rounded-[2rem] border-2 opacity-0 transition-all duration-700 ease-out group-hover:opacity-100"
+							style="border-color: transparent;
 							   background: {theme.primaryGradient};
 							   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
 							   -webkit-mask-composite: xor;
 							   mask-composite: exclude;
 							   box-shadow: 0 0 60px var(--glow-color);"
-						aria-hidden="true"
-					></span>
+							aria-hidden="true"
+						></span>
 
-					<!-- Inner background with subtle gradient -->
-					<span
-						class="pointer-events-none absolute inset-[2px] rounded-[1.85rem]"
-						style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(2, 6, 23, 0.9) 50%, rgba(15, 23, 42, 0.95) 100%);"
-						aria-hidden="true"
-					></span>
+						<!-- Inner background with subtle gradient -->
+						<span
+							class="pointer-events-none absolute inset-[2px] rounded-[1.85rem]"
+							style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(2, 6, 23, 0.9) 50%, rgba(15, 23, 42, 0.95) 100%);"
+							aria-hidden="true"
+						></span>
 
-					<!-- Orbiting elements -->
-					<span
-						class="cosmic-orbit pointer-events-none absolute top-8 right-8 h-1 w-1 rounded-full opacity-0 transition-all duration-1000 ease-out group-hover:opacity-100"
-						style="background: {theme.accentColor}cc;
+						<!-- Orbiting elements -->
+						<span
+							class="cosmic-orbit pointer-events-none absolute top-8 right-8 h-1 w-1 rounded-full opacity-0 transition-all duration-1000 ease-out group-hover:opacity-100"
+							style="background: {theme.accentColor}cc;
 							   animation: orbit 8s linear infinite;"
-						aria-hidden="true"
-					></span>
+							aria-hidden="true"
+						></span>
 
-					<div class="relative z-10 flex h-full flex-col justify-between gap-8 px-8 py-8">
-						<div class="space-y-6">
-							<div class="flex items-start justify-between gap-6">
-								<p
-									class="text-[0.65rem] font-bold tracking-[0.45em] uppercase"
-									style="color: {theme.tagColor};
+						<div class="relative z-10 flex h-full flex-col justify-between gap-8 px-8 py-8">
+							<div class="space-y-6">
+								<div class="flex items-start justify-between gap-6">
+									<p
+										class="text-[0.65rem] font-bold tracking-[0.45em] uppercase"
+										style="color: {theme.tagColor};
 										   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;"
-								>
-									Project {formatOrder(index)}
-								</p>
-								<span
-									class="inline-flex items-center gap-1 text-sm font-semibold transition-all duration-500 group-hover:scale-105 group-hover:gap-3"
-									style="color: {theme.accentColor};"
-								>
+									>
+										Project {formatOrder(index)}
+									</p>
 									<span
-										class="h-1 w-8 origin-left scale-x-50 rounded-full transition-all duration-700 group-hover:w-12 group-hover:scale-x-100"
-										style="background: {theme.primaryGradient};
+										class="inline-flex items-center gap-1 text-sm font-semibold transition-all duration-500 group-hover:scale-105 group-hover:gap-3"
+										style="color: {theme.accentColor};"
+									>
+										<span
+											class="h-1 w-8 origin-left scale-x-50 rounded-full transition-all duration-700 group-hover:w-12 group-hover:scale-x-100"
+											style="background: {theme.primaryGradient};
 											   box-shadow: 0 0 8px {theme.accentColor};"
-										aria-hidden="true"
-									></span>
-									<span
-										class="text-transparent"
-										style="background: {theme.primaryGradient};
+											aria-hidden="true"
+										></span>
+										<span
+											class="text-transparent"
+											style="background: {theme.primaryGradient};
 											   background-clip: text;
 											   -webkit-background-clip: text;">Featured</span
-									>
-								</span>
-							</div>
-							<h3
-								class="text-2xl font-bold tracking-tight text-balance text-white transition-all duration-500 group-hover:scale-105 group-hover:text-transparent group-hover:brightness-125 group-hover:contrast-125"
-								style="--title-gradient-hover: {theme.titleGradientHover};"
-							>
-								{project.title}
-							</h3>
-							{#if project.description}
-								<p
-									class="main-text-dim max-w-[27rem] text-base leading-relaxed text-slate-300/90 transition-colors duration-500 group-hover:text-slate-200"
+										>
+									</span>
+								</div>
+								<h3
+									class="text-2xl font-bold tracking-tight text-balance text-white transition-all duration-500 group-hover:scale-105 group-hover:text-transparent group-hover:brightness-125 group-hover:contrast-125"
+									style="--title-gradient-hover: {theme.titleGradientHover};"
 								>
-									{project.description}
-								</p>
-							{/if}
-						</div>
-						<div class="space-y-5">
-							{#if project.tags?.length}
-								<div class="flex flex-wrap gap-2.5">
-									{#each project.tags ?? [] as tag, tagIndex (tag + tagIndex)}
-										<span
-											class="cosmic-tag inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[0.65rem] font-bold tracking-[0.25em] uppercase backdrop-blur-sm transition-all duration-500 group-hover:scale-105"
-											style="animation-delay: {tagIndex * 100}ms;
+									{project.title}
+								</h3>
+								{#if project.description}
+									<p
+										class="main-text-dim max-w-[27rem] text-base leading-relaxed text-slate-300/90 transition-colors duration-500 group-hover:text-slate-200"
+									>
+										{project.description}
+									</p>
+								{/if}
+							</div>
+							<div class="space-y-5">
+								{#if project.tags?.length}
+									<div class="flex flex-wrap gap-2.5">
+										{#each project.tags ?? [] as tag, tagIndex (tag + tagIndex)}
+											<span
+												class="cosmic-tag inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[0.65rem] font-bold tracking-[0.25em] uppercase backdrop-blur-sm transition-all duration-500 group-hover:scale-105"
+												style="animation-delay: {tagIndex * 100}ms;
 											   border-color: {theme.borderColor};
 											   color: {theme.tagColor};
 											   background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.8) 100%);
@@ -222,14 +224,14 @@
 											   --tag-hover-bg: linear-gradient(135deg, {theme.accentColor}1a 0%, {theme.accentColor}0d 100%);
 											   --tag-hover-color: {theme.accentColor};
 											   --tag-hover-shadow: 0 0 15px {theme.glowColor};"
-										>
-											{tag}
-										</span>
-									{/each}
-								</div>
-							{/if}
+											>
+												{tag}
+											</span>
+										{/each}
+									</div>
+								{/if}
+							</div>
 						</div>
-					</div>
 					</svelte:element>
 				</div>
 			{/each}

@@ -24,7 +24,6 @@
 		{ label: 'Home', href: 'home' },
 		{ label: 'About', href: 'about' },
 		{ label: 'Stack', href: 'tech-stack' },
-		{ label: 'Experience', href: 'experience' },
 		{ label: 'Projects', href: 'projects' },
 		{ label: 'Contact', href: 'contact' }
 	];
@@ -133,7 +132,7 @@
 	<ScrollProgress progress={scrollProgress} />
 
 	<div class="relative z-10">
-		<main class="container mx-auto pt-[60px] pb-32">
+		<main id="home" class="container mx-auto pt-[60px] pb-32">
 			<HeroSection />
 			<AboutSection />
 			<TechStackSection />
