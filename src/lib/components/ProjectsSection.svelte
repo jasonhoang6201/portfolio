@@ -2,6 +2,13 @@
 	import { base } from '$app/paths';
 	import { fadeIn } from '$lib/actions/fadeIn';
 
+	type Project = {
+		title: string;
+		description?: string;
+		tags?: string[];
+		link?: string;
+	};
+
 	const isExternalLink = (url?: string) => (url ? /^https?:\/\//i.test(url) : false);
 	const resolve = (url: string) => {
 		const normalized = url.startsWith('/') ? url : `/${url}`;
@@ -59,8 +66,7 @@
 	}
 
 	// Generate themes for each project
-	export let projectData: { title: string; description: string; tags: string[]; link?: string }[] =
-		[];
+	export let projectData: Project[] = [];
 
 	// Pre-generate themes so they're consistent per project
 	$: projectThemes = projectData.map(() => generateCosmicTheme());
@@ -120,14 +126,14 @@
 							   mask-composite: exclude;
 							   box-shadow: 0 0 60px var(--glow-color);"
 						aria-hidden="true"
-					/>
+					></span>
 
 					<!-- Inner background with subtle gradient -->
 					<span
 						class="pointer-events-none absolute inset-[2px] rounded-[1.85rem]"
 						style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(2, 6, 23, 0.9) 50%, rgba(15, 23, 42, 0.95) 100%);"
 						aria-hidden="true"
-					/>
+					></span>
 
 					<!-- Orbiting elements -->
 					<span
@@ -135,9 +141,9 @@
 						style="background: {theme.accentColor}cc;
 							   animation: orbit 8s linear infinite;"
 						aria-hidden="true"
-					/>
+					></span>
 
-					<div class="relative z-10 flex h-full flex-col justify-between gap-8 px-8 py-8">
+					<div class="relative z-10 flex h-full flex-col justify-between gap-8 p-6">
 						<div class="space-y-6">
 							<div class="flex items-start justify-between gap-6">
 								<p
@@ -156,7 +162,7 @@
 										style="background: {theme.primaryGradient};
 											   box-shadow: 0 0 8px {theme.accentColor};"
 										aria-hidden="true"
-									/>
+									></span>
 									<span
 										class="text-transparent"
 										style="background: {theme.primaryGradient};
@@ -171,18 +177,21 @@
 							>
 								{project.title}
 							</h3>
-							<p
-								class="main-text-dim max-w-[27rem] text-base leading-relaxed text-slate-300/90 transition-colors duration-500 group-hover:text-slate-200"
-							>
-								{project.description}
-							</p>
+							{#if project.description}
+								<p
+									class="main-text-dim max-w-[27rem] text-base leading-relaxed text-slate-300/90 transition-colors duration-500 group-hover:text-slate-200"
+								>
+									{project.description}
+								</p>
+							{/if}
 						</div>
 						<div class="space-y-5">
-							<div class="flex flex-wrap gap-2.5">
-								{#each project.tags as tag, tagIndex (tag + tagIndex)}
-									<span
-										class="cosmic-tag inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[0.65rem] font-bold tracking-[0.25em] uppercase backdrop-blur-sm transition-all duration-500 group-hover:scale-105"
-										style="animation-delay: {tagIndex * 100}ms;
+							{#if project.tags?.length}
+								<div class="flex flex-wrap gap-2.5">
+									{#each project.tags ?? [] as tag, tagIndex (tag + tagIndex)}
+										<span
+											class="cosmic-tag inline-flex items-center gap-1.5 rounded-full border px-2 py-1 text-[0.65rem] font-bold tracking-[0.25em] uppercase backdrop-blur-sm transition-all duration-500 group-hover:scale-105"
+											style="animation-delay: {tagIndex * 100}ms;
 											   border-color: {theme.borderColor};
 											   color: {theme.tagColor};
 											   background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.8) 100%);
@@ -190,17 +199,12 @@
 											   --tag-hover-bg: linear-gradient(135deg, {theme.accentColor}1a 0%, {theme.accentColor}0d 100%);
 											   --tag-hover-color: {theme.accentColor};
 											   --tag-hover-shadow: 0 0 15px {theme.glowColor};"
-									>
-										<span
-											class="inline-block h-1.5 w-1.5 rounded-full"
-											style="background: {theme.accentColor};
-												   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;"
-											aria-hidden="true"
-										/>
-										{tag}
-									</span>
-								{/each}
-							</div>
+										>
+											{tag}
+										</span>
+									{/each}
+								</div>
+							{/if}
 						</div>
 					</div>
 				</svelte:element>
@@ -270,14 +274,6 @@
 		background: var(--tag-hover-bg);
 		color: var(--tag-hover-color);
 		box-shadow: var(--tag-hover-shadow);
-	}
-
-	.cosmic-beacon {
-		animation-play-state: paused;
-	}
-
-	.group:hover .cosmic-beacon {
-		animation-play-state: running;
 	}
 
 	.cosmic-orbit {

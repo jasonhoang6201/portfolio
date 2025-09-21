@@ -31,53 +31,69 @@
 
 	const projectData = [
 		{
-			title: 'Accumulus AI Flight Operations',
+			title: 'Accumulus AI',
 			description:
-				'Unified airline dashboards and mobile tooling delivering live operational context for pilots and crews.',
-			tags: ['React', 'React Native', 'AWS', 'Realtime'],
-			link: undefined
+				'Real-time aviation platform used by pilots and operations staff, centralizing flight data and improving decision-making efficiency.',
+			tags: ['React Native', 'React', 'Mapbox', 'SQLite', 'Firebase', 'GCP', 'OpenAI']
 		},
 		{
-			title: 'Optimal Vest Wealth Platform',
+			title: 'TechJDI / TalentJDI',
 			description:
-				'Fintech backend and CRM that combine AI-guided investment chatbots with portfolio insights.',
-			tags: ['NestJS', 'MongoDB', 'AI', 'CRM'],
-			link: undefined
+				'Customizable landing pages for marketing campaigns, enabling non-technical staff to update content and layouts independently.',
+			tags: ['Payload CMS', 'Next.js']
 		},
 		{
-			title: 'JDI Central Marketplace',
+			title: 'Optimal Vest',
 			description:
-				'Web marketplace framework connecting freelancers, agencies, and employers from day zero.',
-			tags: ['Next.js', 'Design System', 'Mentorship'],
-			link: undefined
+				'Backend services powering an AI-driven investment chatbot, enabling clients to manage portfolios with personalized guidance.',
+			tags: ['NestJS', 'MongoDB', 'Supabase', 'OpenAI']
 		},
 		{
-			title: 'Lylo Car Rentals',
+			title: 'JDI Central',
 			description:
-				'Mobile marketplace for reserving rental cars with on-demand handoff and logistics tracking.',
-			tags: ['React Native', 'Firebase', 'CI/CD'],
-			link: undefined
+				'Web-based marketplace connecting freelancers, agencies, and employers from project inception.',
+			tags: ['Next.js', 'EC2']
 		},
 		{
-			title: 'Blimobil Automotive Commerce',
-			description:
-				'Cross-platform buying/selling suite for dealers including CRM workflows and secure deployments.',
-			tags: ['React Native', 'Stripe', 'DevOps'],
-			link: undefined
+			title: 'Lylo',
+			description: 'Mobile rental platform enabling users to search, book, and rent cars.',
+			tags: ['React Native', 'Stripe', 'Google Maps']
 		},
 		{
-			title: 'ReferReach Community Referrals',
+			title: 'Blimobil',
 			description:
-				'Cross-platform app powering community referrals with admin analytics and feature experiments.',
-			tags: ['React Native', 'Firebase', 'Analytics'],
-			link: undefined
+				'Online marketplace enabling buyers to purchase used cars from dealers and dealers to acquire new cars from suppliers.',
+			tags: ['Next.js', 'React', 'React Native', 'EC2']
 		},
 		{
-			title: 'Simply Wealth Advisor Tools',
+			title: 'ReferReach',
 			description:
-				'Advisor dashboard delivering portfolio calculations, dynamic visualizations, and performance upgrades.',
-			tags: ['Angular', 'NestJS', 'Charts'],
-			link: undefined
+				'Mobile and web social platform for matching jobs and talent, paired with a client CRM that tracks engagement trends to guide future decisions.',
+			tags: ['React', 'React Native', 'Redux', 'Mixpanel']
+		},
+		{
+			title: 'Simply Wealth',
+			description:
+				'Financial advisor platform with automated portfolio calculations and interactive charts.',
+			tags: ['React', 'Ant Design', 'Rechart']
+		},
+		{
+			title: 'BAS',
+			description:
+				'Berthing Aid System web app for ports that ingests sensor data to monitor vessels arriving or departing and visualize each step of the docking process.',
+			tags: ['React', 'MUI', 'Konva']
+		},
+		{
+			title: 'Phuong Anh Jewelry',
+			description:
+				'E-commerce jewelry platform with an admin portal for sellers to manage inventory and a buyer app to browse, chat, order, and track purchases end to end.',
+			tags: ['Next.js', 'Ant Design', 'Tailwind CSS', 'Agora SDK']
+		},
+		{
+			title: 'Education Web App',
+			description:
+				'Education app where teachers craft tests and students complete them online, submit answers, and receive grades.',
+			tags: ['React']
 		}
 	];
 
