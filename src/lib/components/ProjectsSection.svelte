@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { fadeIn } from '$lib/actions/fadeIn';
+	import { flip } from 'svelte/animate';
+	import { cubicOut } from 'svelte/easing';
 
 	type Project = {
 		title: string;
@@ -9,13 +11,28 @@
 		link?: string;
 	};
 
+	const formatOrder = (index: number) => String(index + 1).padStart(2, '0');
+
+	const softSlide = (
+		node: Element,
+		{
+			delay = 0,
+			duration = 260,
+			easing = cubicOut,
+			distance = 16
+		}: { delay?: number; duration?: number; easing?: (t: number) => number; distance?: number } = {}
+	) => ({
+		delay,
+		duration,
+		easing,
+		css: (t: number) => `opacity: ${t}; transform: translateY(${(1 - t) * distance}px);`
+	});
+
 	const isExternalLink = (url?: string) => (url ? /^https?:\/\//i.test(url) : false);
 	const resolve = (url: string) => {
 		const normalized = url.startsWith('/') ? url : `/${url}`;
 		return `${base}${normalized}`;
 	};
-
-	const formatOrder = (index: number) => String(index + 1).padStart(2, '0');
 
 	const computeHref = (url?: string) => {
 		if (!url) return undefined;
@@ -65,11 +82,15 @@
 		};
 	}
 
-	// Generate themes for each project
-	export let projectData: Project[] = [];
+	const props = $props<{ projectData: Project[] }>();
+	const projectData = props.projectData;
 
-	// Pre-generate themes so they're consistent per project
-	$: projectThemes = projectData.map(() => generateCosmicTheme());
+	const VISIBLE_COUNT = 6;
+	let showAll = $state(false);
+
+	type ProjectTheme = ReturnType<typeof generateCosmicTheme>;
+	const projectThemes: ProjectTheme[] = projectData.map(() => generateCosmicTheme());
+	const visibleProjects = $derived((showAll ? projectData : projectData.slice(0, VISIBLE_COUNT)) as Project[]);
 </script>
 
 <section use:fadeIn id="projects" class="fade-in-section relative isolate overflow-hidden py-24">
@@ -101,21 +122,23 @@
 		</div>
 
 		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" style="z-index: 10; position: relative;">
-			{#each projectData as project, index (project.title)}
+			{#each visibleProjects as project, index (project.title)}
 				{@const theme = projectThemes[index]}
-				<svelte:element
-					this={project.link ? 'a' : 'article'}
-					href={project.link ? computeHref(project.link) : undefined}
-					class="cosmic-card group relative isolate flex transform-gpu overflow-hidden rounded-[2rem] border shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur-sm transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:-translate-y-4 hover:scale-[1.02] hover:rotate-[1deg]"
-					target={project.link && isExternalLink(project.link) ? '_blank' : undefined}
-					rel={project.link && isExternalLink(project.link) ? 'noreferrer' : undefined}
-					style="--glow-color: {theme.glowColor};
-						   --glow-color-strong: {theme.glowColorStrong};
-						   --accent-color: {theme.accentColor};
-						   --accent-color-dark: {theme.accentColorDark};
-						   border-color: rgba(30, 41, 59, 0.4);
-						   background: rgba(2, 6, 23, 0.9);"
-				>
+				<div class="h-full" animate:flip={{ duration: 450, easing: cubicOut }}>
+					<svelte:element
+						this={project.link ? 'a' : 'article'}
+						href={project.link ? computeHref(project.link) : undefined}
+						class="cosmic-card group relative isolate flex h-full transform-gpu overflow-hidden rounded-[2rem] border shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur-sm transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:-translate-y-4 hover:scale-[1.02] hover:rotate-[1deg]"
+						target={project.link && isExternalLink(project.link) ? '_blank' : undefined}
+						rel={project.link && isExternalLink(project.link) ? 'noreferrer' : undefined}
+						style="--glow-color: {theme.glowColor};
+							   --glow-color-strong: {theme.glowColorStrong};
+							   --accent-color: {theme.accentColor};
+							   --accent-color-dark: {theme.accentColorDark};
+							   border-color: rgba(30, 41, 59, 0.4);
+							   background: rgba(2, 6, 23, 0.9);"
+						transition:softSlide={{ duration: 260, distance: 18 }}
+					>
 					<!-- Dynamic gradient border overlay -->
 					<span
 						class="pointer-events-none absolute inset-0 rounded-[2rem] border-2 opacity-0 transition-all duration-700 ease-out group-hover:opacity-100"
@@ -143,7 +166,7 @@
 						aria-hidden="true"
 					></span>
 
-					<div class="relative z-10 flex h-full flex-col justify-between gap-8 p-6">
+					<div class="relative z-10 flex h-full flex-col justify-between gap-8 px-8 py-8">
 						<div class="space-y-6">
 							<div class="flex items-start justify-between gap-6">
 								<p
@@ -190,7 +213,7 @@
 								<div class="flex flex-wrap gap-2.5">
 									{#each project.tags ?? [] as tag, tagIndex (tag + tagIndex)}
 										<span
-											class="cosmic-tag inline-flex items-center gap-1.5 rounded-full border px-2 py-1 text-[0.65rem] font-bold tracking-[0.25em] uppercase backdrop-blur-sm transition-all duration-500 group-hover:scale-105"
+											class="cosmic-tag inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[0.65rem] font-bold tracking-[0.25em] uppercase backdrop-blur-sm transition-all duration-500 group-hover:scale-105"
 											style="animation-delay: {tagIndex * 100}ms;
 											   border-color: {theme.borderColor};
 											   color: {theme.tagColor};
@@ -207,9 +230,25 @@
 							{/if}
 						</div>
 					</div>
-				</svelte:element>
+					</svelte:element>
+				</div>
 			{/each}
 		</div>
+		{#if projectData.length > VISIBLE_COUNT}
+			<div class="mt-12 flex justify-center">
+				<button
+					type="button"
+					onclick={() => (showAll = !showAll)}
+					class="group inline-flex items-center gap-2 rounded-full border border-slate-700/60 bg-slate-900/60 px-6 py-3 text-sm font-semibold tracking-[0.2em] text-slate-200 uppercase shadow-[0_10px_30px_-15px_rgba(15,23,42,0.9)] transition-all duration-500 hover:border-slate-500/80 hover:bg-slate-900/80"
+				>
+					<span
+						class="inline-block h-1 w-6 origin-left scale-x-50 rounded-full bg-gradient-to-r from-cyan-400 via-sky-500 to-purple-400 transition-all duration-500 group-hover:w-10 group-hover:scale-x-100"
+						aria-hidden="true"
+					></span>
+					{showAll ? 'Show fewer projects' : 'Show all projects'}
+				</button>
+			</div>
+		{/if}
 	</div>
 </section>
 
