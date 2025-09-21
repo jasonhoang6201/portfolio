@@ -67,8 +67,6 @@
 </script>
 
 <section use:fadeIn id="projects" class="fade-in-section relative isolate overflow-hidden py-24">
-	<div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
-
 	<div class="container mx-auto px-6 md:px-12">
 		<div class="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
 			<div>
@@ -79,7 +77,7 @@
 						   -webkit-background-clip: text;
 						   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;"
 				>
-					Featured Projects
+					Highlights
 				</p>
 				<h2
 					class="text-glow mt-4 text-4xl font-bold text-transparent md:text-5xl"
@@ -87,12 +85,12 @@
 						   background-clip: text;
 						   -webkit-background-clip: text;"
 				>
-					Designing polished digital products.
+					Building solutions through code
 				</h2>
 			</div>
 			<p class="main-text-dim max-w-xl text-lg leading-relaxed text-slate-300">
-				A collection of client work and personal ventures where I guided the product vision,
-				architected the front end, and shipped dependable experiences.
+				Projects where I contributed as a developer, translating requirements into working solutions
+				and strengthening my problem-solving skills.
 			</p>
 		</div>
 
