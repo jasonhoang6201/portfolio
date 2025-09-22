@@ -129,7 +129,7 @@
 			<div class="flex items-center justify-center gap-8">
 				<!-- LinkedIn -->
 				<a
-					href="https://www.linkedin.com/in/nh%C3%A2n-ho%C3%A0ng-4587a6229/"
+					href="https://www.linkedin.com/in/nhan-hoang-dev/"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="group social-icon relative"
