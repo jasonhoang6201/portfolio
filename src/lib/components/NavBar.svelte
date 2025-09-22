@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let navLinks: { label: string; href: string }[] = [];
 	export let isScrolled = false;
+	export let activeHref: string | null = null;
 </script>
 
 <nav
@@ -14,7 +15,15 @@
 		<a href="#home" class="text-glow text-xl font-bold">JH</a>
 		<div class="flex items-center space-x-8">
 			{#each navLinks as link (link.href)}
-				<a href={`#${link.href}`} class="link-text transition-colors duration-300">{link.label}</a>
+				<a
+					href={`#${link.href}`}
+					class="link-text relative transition-colors duration-300"
+					class:!text-sky-300={link.href === activeHref}
+					class:!font-semibold={link.href === activeHref}
+					aria-current={link.href === activeHref ? 'page' : undefined}
+				>
+					{link.label}
+				</a>
 			{/each}
 		</div>
 	</div>
