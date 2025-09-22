@@ -3,7 +3,7 @@
 	import 'aos/dist/aos.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { onMount } from 'svelte';
-	// @ts-ignore
+	// @ts-expect-error - AOS ships without built TypeScript declarations
 	import AOS from 'aos';
 	// import setupLocatorUI from '@locator/runtime';
 
@@ -18,7 +18,7 @@
 	onMount(() => {
 		try {
 			AOS.init({
-				duration: 1200
+				duration: 300
 			});
 		} catch (error) {
 			console.error('Error initializing AOS', error);

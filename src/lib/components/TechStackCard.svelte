@@ -6,6 +6,7 @@
 </script>
 
 <div
+	{...$$restProps}
 	class="card-shell group relative flex flex-col items-center gap-4 overflow-hidden rounded-3xl border border-slate-800/50 bg-slate-900/45 p-5 text-center shadow-[0_18px_44px_rgba(8,47,73,0.35)] backdrop-blur-xl transition-all duration-500 hover:bg-slate-900/60 hover:shadow-[0_30px_72px_rgba(16,185,129,0.25)]"
 	in:fade={{ duration: 200 }}
 >

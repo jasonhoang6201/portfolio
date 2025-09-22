@@ -6,6 +6,9 @@
 
 <div
 	class="scroll-progress fixed top-1/2 right-6 z-40 hidden -translate-y-1/2 flex-col items-end gap-3 text-xs font-semibold tracking-[0.3em] text-sky-100 uppercase md:flex"
+	data-aos="fade-left"
+	data-aos-delay="500"
+	data-aos-duration="800"
 >
 	<span>{Math.round(clamp(progress))}%</span>
 	<div class="relative mr-4.5 h-56 w-1.5 overflow-hidden rounded-full bg-slate-800/70">

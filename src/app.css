@@ -109,7 +109,7 @@ body::-webkit-scrollbar {
 .glass-card:hover {
 	border-color: var(--card-hover-border);
 	box-shadow: 0 0 20px var(--card-hover-shadow);
-	transform: translateY(-4px);
+	transform: translateY(-4px) !important;
 }
 
 .text-glow {

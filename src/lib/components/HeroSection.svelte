@@ -1,9 +1,15 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { fadeIn } from '$lib/actions/fadeIn';
 	import cv from '$lib/assets/HOANG THIEN NHAN.pdf';
 </script>
 
-<section use:fadeIn class="fade-in-section relative flex items-center overflow-hidden py-[10vh]">
+<section
+	use:fadeIn
+	class="fade-in-section relative flex items-center overflow-hidden py-[10vh]"
+	data-aos="fade-up"
+	data-aos-duration="1200"
+>
 	<!-- Floating particles/orbs for cosmic effect -->
 	<div class="pointer-events-none absolute inset-0">
 		<div
@@ -20,8 +26,16 @@
 		></div>
 	</div>
 
-	<div class="relative z-10 container mx-auto grid gap-16 px-6 md:grid-cols-[2fr,1fr] md:px-12">
-		<div class="flex flex-col items-center justify-center space-y-10">
+	<div
+		class="relative z-10 container mx-auto grid gap-16 px-6 md:grid-cols-[2fr,1fr] md:px-12"
+		data-aos="fade-up"
+		data-aos-delay="100"
+	>
+		<div
+			class="flex flex-col items-center justify-center space-y-10"
+			data-aos="fade-up"
+			data-aos-delay="160"
+		>
 			<!-- Enhanced greeting with cosmic styling -->
 			<div class="relative">
 				<p
@@ -47,7 +61,7 @@
 			</div>
 
 			<!-- Enhanced description with better typography -->
-			<div class="relative max-w-2xl">
+			<div class="relative max-w-2xl" data-aos="fade-up" data-aos-delay="220">
 				<p class="main-text-dim text-center text-lg leading-relaxed text-slate-300 md:text-xl">
 					A <span class="text-gradient font-semibold">Software Developer</span> with
 					<span class="text-gradient font-semibold">3+ years</span> of experience in building scalable
@@ -57,7 +71,11 @@
 			</div>
 
 			<!-- Enhanced CTA buttons with improved hover effects -->
-			<div class="flex w-full max-w-md flex-col justify-center gap-6 sm:flex-row">
+			<div
+				class="flex w-full max-w-md flex-col justify-center gap-6 sm:flex-row"
+				data-aos="fade-up"
+				data-aos-delay="280"
+			>
 				<a
 					href="#projects"
 					class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-sky-500 via-emerald-500 to-sky-600 px-8 py-4 font-semibold text-white shadow-lg shadow-sky-500/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-500/40"

@@ -9,8 +9,8 @@
 	}));
 </script>
 
-<div class="floating-dots pointer-events-none">
-	{#each dots as dot}
+<div class="floating-dots pointer-events-none" data-aos="fade" data-aos-duration="1200">
+	{#each dots as dot (dot.id)}
 		<span
 			class="dot"
 			style={`width:${dot.size}px;height:${dot.size}px;left:${dot.left}%;top:${dot.top}%;animation-duration:${dot.duration}s;animation-delay:${dot.delay}s;`}

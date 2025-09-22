@@ -82,9 +82,15 @@
 			: stackItems.filter((item) => item.categories.includes(selectedCategory));
 </script>
 
-<section use:fadeIn id="tech-stack" class="fade-in-section py-24">
+<section
+	use:fadeIn
+	id="tech-stack"
+	class="fade-in-section py-24"
+	data-aos="fade-up"
+	data-aos-duration="1100"
+>
 	<div class="container mx-auto px-6 md:px-12">
-		<div class="mb-6 text-center">
+		<div class="mb-6 text-center" data-aos="fade-up" data-aos-delay="100">
 			<p class="text-sm font-semibold tracking-[0.3em] text-emerald-400 uppercase">
 				Technology Stack
 			</p>
@@ -93,8 +99,8 @@
 			</h2>
 		</div>
 
-		<div class="flex flex-wrap justify-center gap-3">
-			{#each categories as category}
+		<div class="flex flex-wrap justify-center gap-3" data-aos="zoom-in" data-aos-delay="160">
+			{#each categories as category (category.id)}
 				<button
 					type="button"
 					on:click={() => (selectedCategory = category.id)}
@@ -112,22 +118,36 @@
 		</div>
 
 		{#if selectedCategory === 'all'}
-			<div class="mt-4 space-y-4">
+			<div class="mt-4 space-y-4" data-aos="fade-up" data-aos-delay="220">
 				{#each sections as section, index (section.id + index)}
-					<div class="space-y-3">
+					<div class="space-y-3" data-aos="fade-up" data-aos-delay={240 + index * 120}>
 						<h3 class="text-xl font-semibold text-white">{section.label}</h3>
 						<div class="grid grid-cols-3 gap-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
-							{#each section.items as tech (tech.name)}
-								<TechStackCard name={tech.name} iconSrc={`${iconBase}/${tech.icon}`} />
+							{#each section.items as tech, techIndex (tech.name)}
+								<TechStackCard
+									name={tech.name}
+									iconSrc={`${iconBase}/${tech.icon}`}
+									data-aos="zoom-in"
+									data-aos-delay={techIndex * 70}
+								/>
 							{/each}
 						</div>
 					</div>
 				{/each}
 			</div>
 		{:else}
-			<div class="mt-12 grid grid-cols-3 gap-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+			<div
+				class="mt-12 grid grid-cols-3 gap-6 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8"
+				data-aos="fade-up"
+				data-aos-delay="220"
+			>
 				{#each filteredStack as tech, index (tech.name + index)}
-					<TechStackCard name={tech.name} iconSrc={`${iconBase}/${tech.icon}`} />
+					<TechStackCard
+						name={tech.name}
+						iconSrc={`${iconBase}/${tech.icon}`}
+						data-aos="zoom-in"
+						data-aos-delay={index * 80}
+					/>
 				{/each}
 			</div>
 		{/if}

@@ -5,13 +5,23 @@
 	import phuongNamDigital from '$lib/assets/phuongNamDigital.png';
 </script>
 
-<section use:fadeIn id="about" class="fade-in-section py-24">
-	<h2 class="mb-12 text-center text-4xl font-bold">
+<section
+	use:fadeIn
+	id="about"
+	class="fade-in-section py-24"
+	data-aos="fade-up"
+	data-aos-duration="1100"
+>
+	<h2 class="mb-12 text-center text-4xl font-bold" data-aos="fade-up" data-aos-delay="80">
 		<span class="text-glow-blue bounce-hover">About Me</span>
 	</h2>
-	<div class="container mx-auto gap-6 px-6 md:grid md:grid-cols-12 md:px-12">
+	<div
+		class="container mx-auto gap-6 px-6 md:grid md:grid-cols-12 md:px-12"
+		data-aos="fade-up"
+		data-aos-delay="120"
+	>
 		<div class="col-span-8 space-y-6">
-			<div class="glass-card rounded-2xl p-6">
+			<div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="160">
 				<h3 class="text-xl font-semibold text-white">👋 Hello, I'm Jason (Nhân in Vietnamese)</h3>
 				<ul class="mt-4 space-y-2 text-sky-100/90">
 					<li class="flex items-start">
@@ -45,7 +55,7 @@
 				<div class="flex justify-between">
 					<div class="flex-1">
 						<span class="text-white"> Soft skills</span>
-						{#each ['Multi-tasking', 'Time management', 'Problem-solving', 'Adaptability'] as skill}
+						{#each ['Multi-tasking', 'Time management', 'Problem-solving', 'Adaptability'] as skill (skill)}
 							<div class="mt-2 flex items-start gap-2 text-sky-100/90">
 								<span class="dot-gradient"></span>
 								<span class="main-text-dim">{skill}</span>
@@ -55,7 +65,7 @@
 
 					<div class="flex-1">
 						<span class="text-white"> Languages: <span class="text-gradient">English</span></span>
-						{#each ['Comfortable discussing features', 'Writing technical docs'] as skill}
+						{#each ['Comfortable discussing features', 'Writing technical docs', 'Research and development'] as skill (skill)}
 							<div class="mt-2 flex items-start gap-2 text-sky-100/90">
 								<span class="dot-gradient"></span>
 								<span class="main-text-dim">{skill}</span>
@@ -65,7 +75,7 @@
 				</div>
 			</div>
 
-			<div class="glass-card rounded-2xl p-6">
+			<div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="220">
 				<h3 class="text-xl font-semibold text-white">Education</h3>
 				<div class="mt-4 flex flex-col gap-2 text-sky-100/90">
 					<div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
@@ -80,8 +90,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-span-4 mt-6 w-full space-y-6 md:mt-0">
-			<div class="glass-card rounded-2xl p-6">
+		<div class="col-span-4 mt-6 w-full space-y-6 md:mt-0" data-aos="fade-up" data-aos-delay="260">
+			<div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="280">
 				<div class="flex items-center">
 					<img src={techjdi} alt="TechJDI" class="h-10 w-10 rounded-[8px] object-cover" />
 					<div class="ml-3">
@@ -96,7 +106,7 @@
 				</p>
 			</div>
 
-			<div class="glass-card rounded-2xl p-6">
+			<div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="340">
 				<div class="flex items-center">
 					<img src={crosstech} alt="TechJDI" class="h-10 w-10 rounded-[8px] object-cover" />
 					<div class="ml-3">
@@ -111,7 +121,7 @@
 				</p>
 			</div>
 
-			<div class="glass-card rounded-2xl p-6">
+			<div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="400">
 				<div class="flex items-center">
 					<img src={phuongNamDigital} alt="TechJDI" class="h-10 w-10 rounded-[8px] object-cover" />
 					<div class="ml-3">

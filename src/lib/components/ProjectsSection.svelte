@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import { fadeIn } from '$lib/actions/fadeIn';
 	import { flip } from 'svelte/animate';
 	import { cubicOut } from 'svelte/easing';
@@ -14,7 +13,7 @@
 	const formatOrder = (index: number) => String(index + 1).padStart(2, '0');
 
 	const softSlide = (
-		node: Element,
+		_node: Element,
 		{
 			delay = 0,
 			duration = 260,
@@ -27,17 +26,6 @@
 		easing,
 		css: (t: number) => `opacity: ${t}; transform: translateY(${(1 - t) * distance}px);`
 	});
-
-	const isExternalLink = (url?: string) => (url ? /^https?:\/\//i.test(url) : false);
-	const resolve = (url: string) => {
-		const normalized = url.startsWith('/') ? url : `/${url}`;
-		return `${base}${normalized}`;
-	};
-
-	const computeHref = (url?: string) => {
-		if (!url) return undefined;
-		return isExternalLink(url) ? url : resolve(url);
-	};
 
 	// Color pool for gradients - using actual color values instead of Tailwind classes
 	const colorPool = [
@@ -82,8 +70,73 @@
 		};
 	}
 
-	const props = $props<{ projectData: Project[] }>();
-	const projectData = props.projectData;
+	const projectData = [
+		{
+			title: 'Accumulus AI',
+			description:
+				'Real-time aviation platform used by pilots and operations staff, centralizing flight data and improving decision-making efficiency.',
+			tags: ['React Native', 'React', 'Mapbox', 'SQLite', 'Firebase', 'GCP', 'OpenAI']
+		},
+		{
+			title: 'TechJDI / TalentJDI',
+			description:
+				'Customizable landing pages for marketing campaigns, enabling non-technical staff to update content and layouts independently.',
+			tags: ['Payload CMS', 'Next.js']
+		},
+		{
+			title: 'Optimal Vest',
+			description:
+				'Backend services powering an AI-driven investment chatbot, enabling clients to manage portfolios with personalized guidance.',
+			tags: ['NestJS', 'MongoDB', 'Supabase', 'OpenAI']
+		},
+		{
+			title: 'JDI Central',
+			description:
+				'Web-based marketplace connecting freelancers, agencies, and employers from project inception.',
+			tags: ['Next.js', 'EC2']
+		},
+		{
+			title: 'Lylo',
+			description: 'Mobile rental platform enabling users to search, book, and rent cars.',
+			tags: ['React Native', 'Stripe', 'Google Maps']
+		},
+		{
+			title: 'Blimobil',
+			description:
+				'Online marketplace enabling buyers to purchase used cars from dealers and dealers to acquire new cars from suppliers.',
+			tags: ['Next.js', 'React', 'React Native', 'EC2']
+		},
+		{
+			title: 'ReferReach',
+			description:
+				'Mobile and web social platform for matching jobs and talent, paired with a client CRM that tracks engagement trends to guide future decisions.',
+			tags: ['React', 'React Native', 'Redux', 'Mixpanel']
+		},
+		{
+			title: 'Simply Wealth',
+			description:
+				'Financial advisor platform with automated portfolio calculations and interactive charts.',
+			tags: ['React', 'Ant Design', 'Rechart']
+		},
+		{
+			title: 'BAS',
+			description:
+				'Berthing Aid System web app for ports that ingests sensor data to monitor vessels arriving or departing and visualize each step of the docking process.',
+			tags: ['React', 'MUI', 'Konva']
+		},
+		{
+			title: 'Phuong Anh Jewelry',
+			description:
+				'E-commerce jewelry platform with an admin portal for sellers to manage inventory and a buyer app to browse, chat, order, and track purchases end to end.',
+			tags: ['Next.js', 'Ant Design', 'Tailwind CSS', 'Agora SDK']
+		},
+		{
+			title: 'Education Web App',
+			description:
+				'Education app where teachers craft tests and students complete them online, submit answers, and receive grades.',
+			tags: ['React']
+		}
+	];
 
 	const VISIBLE_COUNT = 6;
 	let showAll = $state(false);
@@ -95,9 +148,19 @@
 	);
 </script>
 
-<section use:fadeIn id="projects" class="fade-in-section relative isolate overflow-hidden py-24">
+<section
+	use:fadeIn
+	id="projects"
+	class="fade-in-section relative isolate overflow-hidden py-24"
+	data-aos="fade-up"
+	data-aos-duration="1100"
+>
 	<div class="container mx-auto px-6 md:px-12">
-		<div class="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+		<div
+			class="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+			data-aos="fade-up"
+			data-aos-delay="120"
+		>
 			<div>
 				<p
 					class="text-sm font-semibold tracking-[0.35em] text-transparent uppercase"
@@ -117,22 +180,27 @@
 					Building solutions through code
 				</h2>
 			</div>
-			<p class="main-text-dim max-w-xl text-lg leading-relaxed text-slate-300">
+			<p
+				class="main-text-dim max-w-xl text-lg leading-relaxed text-slate-300"
+				data-aos="fade-up"
+				data-aos-delay="180"
+			>
 				Projects where I contributed as a developer, translating requirements into working solutions
 				and strengthening my problem-solving skills.
 			</p>
 		</div>
 
-		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" style="z-index: 10; position: relative;">
+		<div
+			class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+			style="z-index: 10; position: relative;"
+			data-aos="fade-up"
+			data-aos-delay="220"
+		>
 			{#each visibleProjects as project, index (project.title)}
 				{@const theme = projectThemes[index]}
 				<div class="h-full" animate:flip={{ duration: 450, easing: cubicOut }}>
-					<svelte:element
-						this={project.link ? 'a' : 'article'}
-						href={project.link ? computeHref(project.link) : undefined}
-						class="cosmic-card group relative isolate flex h-full transform-gpu overflow-hidden rounded-[2rem] border shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur-sm transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:-translate-y-4 hover:scale-[1.02] hover:rotate-[1deg]"
-						target={project.link && isExternalLink(project.link) ? '_blank' : undefined}
-						rel={project.link && isExternalLink(project.link) ? 'noreferrer' : undefined}
+					<div
+						class="cosmic-card group relative isolate flex h-full overflow-hidden rounded-[2rem] border shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] backdrop-blur-sm transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] hover:-translate-y-2 hover:scale-[1.02] hover:rotate-[1deg]"
 						style="--glow-color: {theme.glowColor};
 							   --glow-color-strong: {theme.glowColorStrong};
 							   --accent-color: {theme.accentColor};
@@ -140,6 +208,8 @@
 							   border-color: rgba(30, 41, 59, 0.4);
 							   background: rgba(2, 6, 23, 0.9);"
 						transition:softSlide={{ duration: 260, distance: 18 }}
+						data-aos="fade-up"
+						data-aos-delay={260 + index * 120}
 					>
 						<!-- Dynamic gradient border overlay -->
 						<span
@@ -188,12 +258,6 @@
 											   box-shadow: 0 0 8px {theme.accentColor};"
 											aria-hidden="true"
 										></span>
-										<span
-											class="text-transparent"
-											style="background: {theme.primaryGradient};
-											   background-clip: text;
-											   -webkit-background-clip: text;">Featured</span
-										>
 									</span>
 								</div>
 								<h3
@@ -232,12 +296,12 @@
 								{/if}
 							</div>
 						</div>
-					</svelte:element>
+					</div>
 				</div>
 			{/each}
 		</div>
 		{#if projectData.length > VISIBLE_COUNT}
-			<div class="mt-12 flex justify-center">
+			<div class="mt-12 flex justify-center" data-aos="zoom-in" data-aos-delay="180">
 				<button
 					type="button"
 					onclick={() => (showAll = !showAll)}
