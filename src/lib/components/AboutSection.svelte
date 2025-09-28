@@ -3,6 +3,7 @@
 	import techjdi from '$lib/assets/techjdi.png';
 	import crosstech from '$lib/assets/crosstech.png';
 	import phuongNamDigital from '$lib/assets/phuongNamDigital.png';
+	import WordReveal from './WordReveal.svelte';
 </script>
 
 <section
@@ -12,9 +13,7 @@
 	data-aos="fade-up"
 	data-aos-duration="1100"
 >
-	<h2 class="mb-12 text-center text-4xl font-bold" data-aos="fade-up" data-aos-delay="80">
-		<span class="text-glow-blue bounce-hover">About Me</span>
-	</h2>
+	<WordReveal text="About Me" />
 	<div
 		class="container mx-auto gap-6 px-6 md:grid md:grid-cols-12 md:px-12"
 		data-aos="fade-up"

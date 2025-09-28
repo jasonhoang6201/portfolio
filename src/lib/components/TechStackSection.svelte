@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fadeIn } from '$lib/actions/fadeIn';
 	import TechStackCard from '$lib/components/TechStackCard.svelte';
+	import WordReveal from './WordReveal.svelte';
 
 	type StackCategory = {
 		id: string;
@@ -91,12 +92,10 @@
 >
 	<div class="container mx-auto px-6 md:px-12">
 		<div class="mb-6 text-center" data-aos="fade-up" data-aos-delay="100">
-			<p class="text-sm font-semibold tracking-[0.3em] text-emerald-400 uppercase">
-				Technology Stack
+			<p class="mb-2 text-sm font-semibold tracking-[0.3em] text-emerald-400 uppercase">
+				Tech Stack
 			</p>
-			<h2 class="text-glow-blue bounce-hover mt-4 text-4xl font-bold md:text-5xl">
-				Technology I use to build projects
-			</h2>
+			<WordReveal text="Technology I use to build projects" stagger={30} />
 		</div>
 
 		<div class="flex flex-wrap justify-center gap-3" data-aos="zoom-in" data-aos-delay="160">

@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import { fadeIn } from '$lib/actions/fadeIn';
 	import cv from '$lib/assets/HOANG THIEN NHAN.pdf';
+	import WordReveal from './WordReveal.svelte';
 </script>
 
 <section
@@ -49,11 +50,11 @@
 
 			<!-- Enhanced name with better glow effects -->
 			<div class="group relative">
-				<h1
-					class="text-glow-enhanced bounce-hover bg-gradient-to-r from-white via-sky-100 to-emerald-100 bg-clip-text text-5xl leading-tight font-bold text-balance text-transparent transition-all duration-500 md:text-7xl"
-				>
-					Jason Hoang
-				</h1>
+				<WordReveal
+					text="Jason Hoang"
+					textClassName="text-5xl leading-tight"
+					containerClassName=""
+				/>
 				<!-- Subtle accent line -->
 				<div
 					class="absolute -bottom-4 left-1/2 h-0.5 w-24 -translate-x-1/2 transform bg-gradient-to-r from-transparent via-emerald-400 to-transparent opacity-60"
